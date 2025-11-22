@@ -1,29 +1,66 @@
-import { motion } from 'motion/react';
-import { Mail, Linkedin, Github, Send } from 'lucide-react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Label } from './ui/label';
-import { Card } from './ui/card';
-import { useState } from 'react';
-import { toast } from 'sonner@2.0.3';
+import { motion } from "motion/react";
+import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Label } from "./ui/label";
+import { Card } from "./ui/card";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock form submission
-    toast.success('Thank you for your message! I\'ll get back to you soon. 👋');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success(
+          "Thank you for your message! I'll get back to you soon. 👋"
+        );
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        const error = await response.json();
+        toast.error(error.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      // Check if we're in development mode
+      const isDev =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1";
+      if (isDev) {
+        toast.info(
+          "📧 Email API only works when deployed to Vercel. For now, please email me directly at samsondemessie@gmail.com"
+        );
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
@@ -39,9 +76,12 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-center mb-6">Get In Touch</h2>
+          <h2 className="text-center mb-6 font-bold text-4xl dark:text-white font-bond text-primary">
+            Get In Touch
+          </h2>
           <p className="text-center text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto">
-            Interested in collaborating or just want to say hi? I'm open to new opportunities and exciting projects.
+            Interested in collaborating or just want to say hi? I'm open to new
+            opportunities and exciting projects.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -59,7 +99,9 @@ export function Contact() {
                     <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Email</p>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm">
+                      Email
+                    </p>
                     <a
                       href="mailto:samsondemessie@gmail.com"
                       className="text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -76,7 +118,9 @@ export function Contact() {
                     <Linkedin className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">LinkedIn</p>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm">
+                      LinkedIn
+                    </p>
                     <a
                       href="https://linkedin.com/in/samsondemessie"
                       target="_blank"
@@ -95,7 +139,9 @@ export function Contact() {
                     <Github className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">GitHub</p>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm">
+                      GitHub
+                    </p>
                     <a
                       href="https://github.com/samsondemessie"
                       target="_blank"
@@ -158,9 +204,10 @@ export function Contact() {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white"
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </form>

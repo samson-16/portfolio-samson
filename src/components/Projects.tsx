@@ -3,7 +3,14 @@ import { ExternalLink, Github } from "lucide-react";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import legal from "../../public/legal.png";
+import chatter from "../../public/chatter.png";
+import rental from "../../public/rental.png";
+import subscribe from '../../public/subscribe.png'
+import lucy from '../../public/lucy.png'
+import plant from '../../public/plant.png'
+import application from '../../public/application.png'
 export function Projects() {
   const projects = [
     {
@@ -11,36 +18,36 @@ export function Projects() {
       description:
         "AI platform simplifying Ethiopian laws with chat and document explainer. Integrated GenAI APIs and built scraping pipelines. Designed accessible UI for low-literacy users.",
       tech: ["React", "TypeScript", "GenAI APIs", "Python", "Tailwind CSS"],
-      liveDemo: "#",
+      liveDemo: "https://lawgen-frontend-wine.vercel.app/",
       github: "#",
-      emoji: "⚖️",
+      image: legal,
     },
     {
       title: "Chatter – Social Networking App",
       description:
         "Scalable platform with Node.js, Express, and MongoDB. Real-time feeds, JWT authentication, and efficient state management.",
       tech: ["Node.js", "Express", "MongoDB", "React", "JWT"],
-      liveDemo: "#",
+      liveDemo: "https://chatter-tfxk.onrender.com/login",
       github: "#",
-      emoji: "💬",
+      image: chatter,
     },
     {
       title: "Lucy Sourcing Website",
       description:
         "Full website for Lucy Sourcing, a China-based sourcing and verification agency. Transformed extensive documentation into a modern, trustworthy online presence with responsive design and smooth UX.",
       tech: ["React", "Tailwind CSS", "Responsive Design"],
-      liveDemo: "#",
-      github: "#",
-      emoji: "🏭",
+      liveDemo: "https://www.figma.com/make/lYx76oehDxQr25hmmF7LRo/FabriNet-Website-Design?node-id=0-1&p=f&t=vJbiOMJhXfQKwedS-0&fullscreen=1",
+      github: "https://github.com/samson-16/Fabrinetwebsitedesign",
+      image: lucy,
     },
     {
       title: "Subscription Tracker API",
       description:
         "Express-based REST API for managing user accounts and recurring subscriptions. Features JWT authentication, password hashing, MongoDB with Mongoose, subscription validation, and centralized error handling.",
       tech: ["Node.js", "Express", "MongoDB", "Mongoose", "JWT"],
-      liveDemo: "#",
+      liveDemo:  "https://github.com/samson-16/Pennysubscription-backend",
       github: "https://github.com/samson-16/Pennysubscription-backend",
-      emoji: "💰",
+      image: subscribe,
     },
     {
       title: "Plant Disease Recognition System",
@@ -54,18 +61,28 @@ export function Projects() {
         "CNN",
         "Random Forest",
       ],
-      liveDemo: "#",
+      liveDemo: "https://github.com/samson-16/plant_diseases_prediction",
       github: "https://github.com/samson-16/plant_diseases_prediction",
-      emoji: "🌿",
+      image: plant,
     },
     {
       title: "A2SV Application Platform",
       description:
         "Centralized system digitizing application workflows for students, reviewers, and managers at Eskalate LLC. Reduced manual review effort by 40% through API integrations and role-based access.",
       tech: ["React", "TypeScript", "API Integration", "State Management"],
-      liveDemo: "#",
+      liveDemo: "https://starter-project-git-main-ludis-projects.vercel.app/",
       github: "https://github.com/Ludis-ET/Starter-Project",
-      emoji: "📋",
+      image: application,
+    },
+    {
+      title: "Rental Management System",
+      description:
+        "The Rental Management System is a web platform designed to make housing rentals in Ethiopia easier and more transparent for both tenants and landlords. The system lets users register, manage rental agreements, track payments, and handle property records in one place. Instead of dealing with scattered paperwork and manual follow-ups, the platform keeps everything organized and accessible.",
+      tech: ["Node.js", "Express", "MongoDB", "Mongoose", "JWT"],
+      liveDemo: "https://front-end-tenants.vercel.app/",
+
+      github: "https://github.com/Kefita-Technology-PLC/ForntEnd_Tenure_Tenant",
+      image: rental,
     },
   ];
 
@@ -79,7 +96,9 @@ export function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-center mb-12">Featured Projects</h2>
+          <h2 className="text-center mb-12 text-4xl dark:text-white text-primary font-bold">
+            Featured Projects
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -92,12 +111,18 @@ export function Projects() {
                 whileHover={{ y: -8 }}
                 className="h-full"
               >
-                <Card className="p-6 h-full flex flex-col hover:shadow-2xl transition-all duration-300 border-slate-200 dark:border-slate-700 dark:bg-slate-800">
+                <Card className="p-6 h-full flex flex-col hover:shadow-2xl transition-all duration-300 border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-white">
                   <div className="mb-4">
-                    <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-lg flex items-center justify-center mb-4">
-                      <div className="text-6xl">{project.emoji}</div>
+                    <div className="w-full h-48 rounded-lg overflow-hidden mb-4 bg-slate-100 dark:bg-slate-700">
+                      <ImageWithFallback
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
-                    <h3 className="mb-3 dark:text-white">{project.title}</h3>
+                    <h3 className="mb-3 text-primary font-bold dark:text-white">
+                      {project.title}
+                    </h3>
                     <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
                       {project.description}
                     </p>

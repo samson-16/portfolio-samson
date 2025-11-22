@@ -68,7 +68,10 @@ export function Navbar() {
               whileHover={{ scale: 1.05 }}
             >
               <span className="text-xl md:text-2xl">
-                <span className="text-blue-600 font-normal md:font-bold">S</span>amson
+                <span className="text-blue-600 font-normal md:font-bold">
+                  S
+                </span>
+                amson
               </span>
             </motion.a>
 

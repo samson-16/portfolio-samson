@@ -19,7 +19,7 @@ export function Education() {
   ];
 
   return (
-    <section id="education" className="py-20 bg-white dark:bg-slate-800">
+    <section id="education" className="py-28 bg-white dark:bg-slate-800">
       <div className="container mx-auto px-4">
         <motion.div
           className="max-w-4xl mx-auto"
@@ -28,7 +28,7 @@ export function Education() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-center mb-12">Education & Certifications</h2>
+          <h2 className="text-center mb-12 text-primary font-bold text-4xl dark:text-white">Education & Certifications</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {education.map((item, index) => (
@@ -41,7 +41,7 @@ export function Education() {
               >
                 <Card className="p-6 h-full hover:shadow-xl transition-all duration-300 border-l-4 border-blue-600 dark:border-blue-400 dark:bg-slate-800">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg flex-shrink-0">
+                    <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg shrink-0">
                       <item.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div className="flex-1">

@@ -43,7 +43,7 @@ export function Hero() {
             </motion.h1>
 
             <motion.h2
-              className="mb-6 min-h-[2.5rem] text-2xl md:text-3xl font-bold"
+              className="mb-6 min-h-[2.5rem] text-2xl md:text-3xl font-bold text-slate-700 dark:text-slate-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -59,30 +59,9 @@ export function Hero() {
                 typingSpeed={80}
                 deletingSpeed={50}
                 delayBetweenTexts={2000}
-                className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent animate-gradient font-extrabold"
+                className="font-semibold"
               />
             </motion.h2>
-
-            <style>{`
-              @keyframes gradient {
-                0%, 100% {
-                  background-position: 0% 50%;
-                }
-                50% {
-                  background-position: 100% 50%;
-                }
-              }
-              
-              .animate-gradient {
-                background-size: 200% auto;
-                animation: gradient 3s ease infinite;
-                filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5));
-              }
-              
-              .dark .animate-gradient {
-                filter: drop-shadow(0 0 25px rgba(96, 165, 250, 0.7));
-              }
-            `}</style>
 
             <motion.p
               className="text-slate-700 dark:text-slate-300 max-w-2xl mb-8 leading-relaxed"

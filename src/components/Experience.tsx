@@ -34,7 +34,7 @@ export function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-center mb-12">Experience</h2>
+          <h2 className="text-center dark:text-white text-primary font-bold text-4xl mb-12">Experience</h2>
 
           <div className="relative">
             {/* Timeline Line */}

@@ -4,7 +4,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 dark:bg-black text-white py-12">
+    <footer className="bg-slate-900 dark:bg-black text-white py-18">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Social Links */}
@@ -38,9 +38,7 @@ export function Footer() {
             <p className="text-slate-400">
               © {currentYear} Samson Demessie Ayalew. All rights reserved.
             </p>
-            <p className="text-slate-500 text-sm">
-              Built with React & Tailwind CSS
-            </p>
+           
           </div>
         </div>
       </div>

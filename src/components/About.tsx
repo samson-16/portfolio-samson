@@ -47,7 +47,7 @@ export function About() {
               className="inline-block"
             >
               <span className="text-blue-600 dark:text-blue-400 mb-2 block">Get to know me</span>
-              <h2 className="mb-6">About Me</h2>
+              <h2 className="mb-6 text-primary dark:text-white font-bold text-4xl">About Me</h2>
             </motion.div>
 
             <motion.p
