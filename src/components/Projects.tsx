@@ -4,13 +4,7 @@ import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import legal from "../../public/legal.png";
-import chatter from "../../public/chatter.png";
-import rental from "../../public/rental.png";
-import subscribe from '../../public/subscribe.png'
-import lucy from '../../public/lucy.png'
-import plant from '../../public/plant.png'
-import application from '../../public/application.png'
+
 export function Projects() {
   const projects = [
     {
@@ -20,7 +14,7 @@ export function Projects() {
       tech: ["React", "TypeScript", "GenAI APIs", "Python", "Tailwind CSS"],
       liveDemo: "https://lawgen-frontend-wine.vercel.app/",
       github: "#",
-      image: legal,
+      image: "/legal.png",
     },
     {
       title: "Chatter – Social Networking App",
@@ -29,25 +23,26 @@ export function Projects() {
       tech: ["Node.js", "Express", "MongoDB", "React", "JWT"],
       liveDemo: "https://chatter-tfxk.onrender.com/login",
       github: "#",
-      image: chatter,
+      image: "/chatter.png",
     },
     {
       title: "Lucy Sourcing Website",
       description:
         "Full website for Lucy Sourcing, a China-based sourcing and verification agency. Transformed extensive documentation into a modern, trustworthy online presence with responsive design and smooth UX.",
       tech: ["React", "Tailwind CSS", "Responsive Design"],
-      liveDemo: "https://www.figma.com/make/lYx76oehDxQr25hmmF7LRo/FabriNet-Website-Design?node-id=0-1&p=f&t=vJbiOMJhXfQKwedS-0&fullscreen=1",
+      liveDemo:
+        "https://www.figma.com/make/lYx76oehDxQr25hmmF7LRo/FabriNet-Website-Design?node-id=0-1&p=f&t=vJbiOMJhXfQKwedS-0&fullscreen=1",
       github: "https://github.com/samson-16/Fabrinetwebsitedesign",
-      image: lucy,
+      image: "/lucy.png",
     },
     {
       title: "Subscription Tracker API",
       description:
         "Express-based REST API for managing user accounts and recurring subscriptions. Features JWT authentication, password hashing, MongoDB with Mongoose, subscription validation, and centralized error handling.",
       tech: ["Node.js", "Express", "MongoDB", "Mongoose", "JWT"],
-      liveDemo:  "https://github.com/samson-16/Pennysubscription-backend",
+      liveDemo: "https://github.com/samson-16/Pennysubscription-backend",
       github: "https://github.com/samson-16/Pennysubscription-backend",
-      image: subscribe,
+      image: "/subscribe.png",
     },
     {
       title: "Plant Disease Recognition System",
@@ -63,7 +58,7 @@ export function Projects() {
       ],
       liveDemo: "https://github.com/samson-16/plant_diseases_prediction",
       github: "https://github.com/samson-16/plant_diseases_prediction",
-      image: plant,
+      image: "/plant.png",
     },
     {
       title: "A2SV Application Platform",
@@ -72,7 +67,7 @@ export function Projects() {
       tech: ["React", "TypeScript", "API Integration", "State Management"],
       liveDemo: "https://starter-project-git-main-ludis-projects.vercel.app/",
       github: "https://github.com/Ludis-ET/Starter-Project",
-      image: application,
+      image: "/application.png",
     },
     {
       title: "Rental Management System",
@@ -80,9 +75,8 @@ export function Projects() {
         "The Rental Management System is a web platform designed to make housing rentals in Ethiopia easier and more transparent for both tenants and landlords. The system lets users register, manage rental agreements, track payments, and handle property records in one place. Instead of dealing with scattered paperwork and manual follow-ups, the platform keeps everything organized and accessible.",
       tech: ["Node.js", "Express", "MongoDB", "Mongoose", "JWT"],
       liveDemo: "https://front-end-tenants.vercel.app/",
-
       github: "https://github.com/Kefita-Technology-PLC/ForntEnd_Tenure_Tenant",
-      image: rental,
+      image: "/rental.png",
     },
   ];
 
