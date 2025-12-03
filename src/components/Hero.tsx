@@ -115,7 +115,7 @@ export function Hero() {
                 <Github className="h-5 w-5 text-slate-700 dark:text-slate-300" />
               </a>
               <a
-                href="https://linkedin.com/in/samsondemessie"
+                href="https://www.linkedin.com/in/samson-demessie/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition-all duration-200"

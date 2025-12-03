@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,7 +10,7 @@ export function Footer() {
           {/* Social Links */}
           <div className="flex justify-center gap-6 mb-8">
             <a
-              href="https://github.com/samsondemessie"
+              href="https://github.com/samson-16"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-slate-800 dark:bg-slate-900 hover:bg-blue-600 dark:hover:bg-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/50"
@@ -18,7 +18,7 @@ export function Footer() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com/in/samsondemessie"
+              href="https://www.linkedin.com/in/samson-demessie/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-slate-800 dark:bg-slate-900 hover:bg-blue-600 dark:hover:bg-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/50"
@@ -38,7 +38,6 @@ export function Footer() {
             <p className="text-slate-400">
               © {currentYear} Samson Demessie Ayalew. All rights reserved.
             </p>
-           
           </div>
         </div>
       </div>

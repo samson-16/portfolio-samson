@@ -129,12 +129,12 @@ export function Contact() {
                       LinkedIn
                     </p>
                     <a
-                      href="https://linkedin.com/in/samsondemessie"
+                      href="https://www.linkedin.com/in/samson-demessie/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
-                      linkedin.com/in/samsondemessie
+                      linkedin.com/in/samson-demessie
                     </a>
                   </div>
                 </div>
@@ -150,12 +150,12 @@ export function Contact() {
                       GitHub
                     </p>
                     <a
-                      href="https://github.com/samsondemessie"
+                      href="https://github.com/samson-16"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
-                      github.com/samsondemessie
+                      github.com/samson-16
                     </a>
                   </div>
                 </div>
