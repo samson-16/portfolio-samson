@@ -10,10 +10,38 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { DottedGlowBackground } from "./components/ui/dotted-glow-background";
 import { Toaster } from "./components/ui/sonner";
+import AnimatedCursor from "react-animated-cursor";
 
 export default function App() {
   return (
     <ThemeProvider>
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={35}
+        innerScale={1}
+        outerScale={2}
+        outerAlpha={0}
+        hasBlendMode={true}
+        innerStyle={{
+          backgroundColor: "rgb(59, 130, 246)",
+        }}
+        outerStyle={{
+          border: "3px solid rgb(59, 130, 246)",
+        }}
+        clickables={[
+          "a",
+          'input[type="text"]',
+          'input[type="email"]',
+          'input[type="number"]',
+          'input[type="submit"]',
+          'input[type="image"]',
+          "label[for]",
+          "select",
+          "textarea",
+          "button",
+          ".link",
+        ]}
+      />
       <DottedGlowBackground>
         <Navbar />
         <Hero />

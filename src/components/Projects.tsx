@@ -33,7 +33,7 @@ export function Projects() {
       liveDemo:
         "https://www.figma.com/make/lYx76oehDxQr25hmmF7LRo/FabriNet-Website-Design?node-id=0-1&p=f&t=vJbiOMJhXfQKwedS-0&fullscreen=1",
       github: "https://github.com/samson-16/Fabrinetwebsitedesign",
-      image: "/lucy.png",
+      image: "/Lucy.png",
     },
     {
       title: "Subscription Tracker API",
