@@ -29,17 +29,24 @@ export function Contact() {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         toast.success(
           "Thank you for your message! I'll get back to you soon. 👋"
         );
         setFormData({ name: "", email: "", message: "" });
       } else {
-        const error = await response.json();
-        toast.error(error.error || "Failed to send message. Please try again.");
+        console.error("API Error:", data);
+        toast.error(data.error || "Failed to send message. Please try again.");
+
+        // Log details for debugging
+        if (data.details) {
+          console.error("Error details:", data.details);
+        }
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Network Error:", error);
       // Check if we're in development mode
       const isDev =
         window.location.hostname === "localhost" ||
