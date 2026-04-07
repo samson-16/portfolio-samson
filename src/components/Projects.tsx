@@ -1,172 +1,293 @@
-import { motion } from "motion/react";
-import { ExternalLink, Github } from "lucide-react";
-import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
+const CARDS_PER_PAGE = 3;
+
 export function Projects() {
+  const [page, setPage] = useState(0);
+  const [dir, setDir] = useState(1);
+
   const projects = [
     {
-      title: "LawGen – AI Legal Assistance Tool",
+      title: "LawGen",
       description:
-        "AI platform simplifying Ethiopian laws with chat and document explainer. Integrated GenAI APIs and built scraping pipelines. Designed accessible UI for low-literacy users.",
-      tech: ["React", "TypeScript", "GenAI APIs", "Python", "Tailwind CSS"],
+        "AI-powered legal document generation platform automating contract drafting and verification for Ethiopian law.",
+      tech: ["Next.js", "OpenAI API", "Tailwind"],
       liveDemo: "https://lawgen-frontend-wine.vercel.app/",
       github: "#",
       image: "/legal.png",
     },
     {
-      title: "Chatter – Social Networking App",
+      title: "Chatter",
       description:
-        "Scalable platform with Node.js, Express, and MongoDB. Real-time feeds, JWT authentication, and efficient state management.",
-      tech: ["Node.js", "Express", "MongoDB", "React", "JWT"],
+        "Real-time messaging ecosystem featuring end-to-end encryption and ultra-low latency communication.",
+      tech: ["Node.js", "Socket.io", "MongoDB"],
       liveDemo: "https://chatter-tfxk.onrender.com/login",
       github: "#",
       image: "/chatter.png",
     },
     {
-      title: "Lucy Sourcing Website",
+      title: "Lucy Sourcing",
       description:
-        "Full website for Lucy Sourcing, a China-based sourcing and verification agency. Transformed extensive documentation into a modern, trustworthy online presence with responsive design and smooth UX.",
-      tech: ["React", "Tailwind CSS", "Responsive Design"],
+        "Strategic sourcing platform designed to streamline vendor management and procurement workflows.",
+      tech: ["React", "Prisma", "PostgreSQL"],
       liveDemo:
         "https://www.figma.com/make/lYx76oehDxQr25hmmF7LRo/FabriNet-Website-Design?node-id=0-1&p=f&t=vJbiOMJhXfQKwedS-0&fullscreen=1",
       github: "https://github.com/samson-16/Fabrinetwebsitedesign",
       image: "/Lucy.png",
     },
     {
-      title: "Subscription Tracker API",
+      title: "Subscription Tracker",
       description:
-        "Express-based REST API for managing user accounts and recurring subscriptions. Features JWT authentication, password hashing, MongoDB with Mongoose, subscription validation, and centralized error handling.",
-      tech: ["Node.js", "Express", "MongoDB", "Mongoose", "JWT"],
+        "Express-based REST API for managing user accounts and recurring subscriptions with JWT auth and centralized error handling.",
+      tech: ["Node.js", "Express", "MongoDB"],
       liveDemo: "https://github.com/samson-16/Pennysubscription-backend",
       github: "https://github.com/samson-16/Pennysubscription-backend",
       image: "/subscribe.png",
     },
     {
-      title: "Plant Disease Recognition System",
+      title: "Plant Disease AI",
       description:
-        "Web-based ML system detecting plant diseases from leaf images. Features CNN for feature extraction, Random Forest for classification, top-3 predictions, multilingual interface (English & Amharic), and downloadable CSV results.",
-      tech: [
-        "Python",
-        "TensorFlow",
-        "scikit-learn",
-        "Streamlit",
-        "CNN",
-        "Random Forest",
-      ],
+        "Web-based ML system detecting plant diseases from leaf images using CNN and Random Forest classification.",
+      tech: ["Python", "TensorFlow", "Streamlit"],
       liveDemo: "https://github.com/samson-16/plant_diseases_prediction",
       github: "https://github.com/samson-16/plant_diseases_prediction",
       image: "/plant.png",
     },
     {
-      title: "A2SV Application Platform",
+      title: "A2SV Platform",
       description:
-        "Centralized system digitizing application workflows for students, reviewers, and managers at Eskalate LLC. Reduced manual review effort by 40% through API integrations and role-based access.",
-      tech: ["React", "TypeScript", "API Integration", "State Management"],
+        "Centralized system digitizing application workflows for students, reviewers, and managers with role-based access.",
+      tech: ["React", "TypeScript", "REST API"],
       liveDemo: "https://starter-project-git-main-ludis-projects.vercel.app/",
       github: "https://github.com/Ludis-ET/Starter-Project",
       image: "/application.png",
     },
     {
-      title: "Rental Management System",
+      title: "Rental Management",
       description:
-        "The Rental Management System is a web platform designed to make housing rentals in Ethiopia easier and more transparent for both tenants and landlords. The system lets users register, manage rental agreements, track payments, and handle property records in one place. Instead of dealing with scattered paperwork and manual follow-ups, the platform keeps everything organized and accessible.",
-      tech: ["Node.js", "Express", "MongoDB", "Mongoose", "JWT"],
+        "Web platform simplifying housing rentals in Ethiopia for tenants and landlords with agreement tracking.",
+      tech: ["Node.js", "Express", "MongoDB"],
       liveDemo: "https://front-end-tenants.vercel.app/",
       github: "https://github.com/Kefita-Technology-PLC/ForntEnd_Tenure_Tenant",
       image: "/rental.png",
     },
   ];
 
+  const totalPages = Math.ceil(projects.length / CARDS_PER_PAGE);
+  const visible = projects.slice(
+    page * CARDS_PER_PAGE,
+    page * CARDS_PER_PAGE + CARDS_PER_PAGE,
+  );
+
+  function goNext() {
+    if (page < totalPages - 1) {
+      setDir(1);
+      setPage((p) => p + 1);
+    }
+  }
+
+  function goPrev() {
+    if (page > 0) {
+      setDir(-1);
+      setPage((p) => p - 1);
+    }
+  }
+
+  const slideVariants = {
+    enter: (d: number) => ({ opacity: 0, x: d * 80 }),
+    center: { opacity: 1, x: 0 },
+    exit: (d: number) => ({ opacity: 0, x: d * -80 }),
+  };
+
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-slate-800">
-      <div className="container mx-auto px-4">
-        <motion.div
-          className="max-w-6xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-center mb-12 text-4xl dark:text-white text-primary font-bold">
-            Featured Projects
-          </h2>
+    <section id="projects" className="py-24 bg-white dark:bg-slate-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ── Header row ── */}
+        <div className="flex items-start justify-between gap-6 mb-14">
+          {/* Left: title + subtitle */}
+          <div className="max-w-xl">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 leading-tight">
+              Selected{" "}
+              <span className="text-blue-600 dark:text-blue-400">Works</span>
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              A curated showcase of engineering projects, ranging from AI
+              applications to complex web architectures.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+          {/* Right: nav arrows */}
+          <div className="flex items-center gap-3 shrink-0 mt-2">
+            <button
+              onClick={goPrev}
+              disabled={page === 0}
+              aria-label="Previous projects"
+              className="
+                w-11 h-11 rounded-xl flex items-center justify-center
+                bg-slate-100 dark:bg-slate-800
+                border border-slate-200 dark:border-slate-700
+                text-slate-600 dark:text-slate-300
+                hover:bg-slate-200 dark:hover:bg-slate-700
+                disabled:opacity-30 disabled:cursor-not-allowed
+                transition-all duration-200
+              "
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={goNext}
+              disabled={page >= totalPages - 1}
+              aria-label="Next projects"
+              className="
+                w-11 h-11 rounded-xl flex items-center justify-center
+                bg-blue-600 dark:bg-blue-500
+                text-white
+                hover:bg-blue-700 dark:hover:bg-blue-600
+                disabled:opacity-30 disabled:cursor-not-allowed
+                shadow-lg shadow-blue-600/25
+                transition-all duration-200
+              "
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* ── Paginated card grid ── */}
+        <AnimatePresence mode="wait" custom={dir}>
+          <motion.div
+            key={page}
+            custom={dir}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.38, ease: "easeInOut" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 md:gap-x-10 lg:gap-x-12 max-w-6xl mx-auto"
+          >
+            {visible.map((project, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * index, duration: 0.5 }}
-                whileHover={{ y: -8 }}
-                className="h-full"
+                key={project.title}
+                className="flex flex-col rounded-2xl overflow-hidden
+                  bg-slate-50 dark:bg-slate-800/70
+                  border border-slate-200 dark:border-slate-700/60
+                  shadow-sm hover:shadow-xl hover:shadow-blue-900/10
+                  hover:-translate-y-1 hover:border-blue-200 dark:hover:border-blue-800/60
+                  transition-all duration-300 h-full"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.08, duration: 0.4 }}
               >
-                <Card className="p-6 h-full flex flex-col hover:shadow-2xl transition-all duration-300 border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-white">
-                  <div className="mb-4">
-                    <div className="w-full h-48 rounded-lg overflow-hidden mb-4 bg-slate-100 dark:bg-slate-700">
-                      <ImageWithFallback
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <h3 className="mb-3 text-primary font-bold dark:text-white">
-                      {project.title}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
+                {/* Image */}
+                <div className="relative h-44 overflow-hidden bg-slate-900 dark:bg-slate-950 shrink-0">
+                  <ImageWithFallback
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* subtle bottom gradient */}
+                  <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-slate-900/60 to-transparent" />
+                </div>
 
-                  <div className="mt-auto">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech, i) => (
-                        <Badge
-                          key={i}
-                          variant="secondary"
-                          className="bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900 dark:text-blue-300 dark:hover:bg-blue-800"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
+                {/* Card body */}
+                <div className="flex flex-col flex-1 p-5">
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
+                    {project.title}
+                  </h3>
 
-                    <div className="flex gap-3">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950"
-                        asChild
+                  {/* Description — max 2 lines */}
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2 mb-4">
+                    {project.description}
+                  </p>
+
+                  {/* Tech tags */}
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {project.tech.slice(0, 4).map((tag) => (
+                      <span
+                        key={tag}
+                        className="
+                          px-3 py-1 rounded-full text-[10px] font-semibold
+                          tracking-widest uppercase
+                          bg-slate-200 dark:bg-slate-900
+                          text-slate-600 dark:text-slate-300
+                          border border-slate-300 dark:border-slate-700
+                        "
                       >
-                        <a
-                          href={project.liveDemo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Live Demo
-                        </a>
-                      </Button>
-                      <Button variant="outline" size="sm" asChild>
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Github className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    </div>
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                </Card>
+
+                  {/* Divider */}
+                  <div className="h-px bg-slate-200 dark:bg-slate-700/60 mb-4 mt-auto" />
+
+                  {/* Action buttons */}
+                  <div className="flex gap-3">
+                    <a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        flex-1 flex items-center justify-center gap-2
+                        px-4 py-2.5 rounded-xl text-sm font-semibold
+                        bg-blue-600 hover:bg-blue-700
+                        dark:bg-blue-600 dark:hover:bg-blue-700
+                        text-white shadow-sm
+                        transition-all duration-200
+                      "
+                    >
+                      <ExternalLink className="h-3.5 w-3.5" />
+                      Live Demo
+                    </a>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        flex-1 flex items-center justify-center gap-2
+                        px-4 py-2.5 rounded-xl text-sm font-semibold
+                        bg-slate-100 hover:bg-slate-200
+                        dark:bg-slate-700/80 dark:hover:bg-slate-700
+                        text-slate-800 dark:text-white
+                        border border-slate-300 dark:border-slate-600
+                        transition-all duration-200
+                      "
+                    >
+                      <Github className="h-3.5 w-3.5" />
+                      GitHub
+                    </a>
+                  </div>
+                </div>
               </motion.div>
             ))}
-          </div>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* ── Page indicator dots ── */}
+        <div className="flex items-center justify-center gap-2 mt-12">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setDir(i > page ? 1 : -1);
+                setPage(i);
+              }}
+              aria-label={`Go to page ${i + 1}`}
+              className={`
+                h-2 rounded-full transition-all duration-300
+                ${
+                  i === page
+                    ? "w-6 bg-blue-600 dark:bg-blue-400"
+                    : "w-2 bg-slate-300 dark:bg-slate-600 hover:bg-slate-400 dark:hover:bg-slate-500"
+                }
+              `}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -13,7 +13,6 @@ export function Footer() {
     { label: "Projects", id: "projects" },
     { label: "Skills", id: "skills" },
     { label: "Education", id: "education" },
-
   ];
 
   return (

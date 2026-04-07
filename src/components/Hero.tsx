@@ -11,8 +11,8 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-16">
           {/* Left: Text Content */}
           <motion.div
             className="flex-1 text-center md:text-left"
@@ -43,7 +43,7 @@ export function Hero() {
             </motion.h1>
 
             <motion.h2
-              className="mb-6 min-h-[2.5rem] text-2xl md:text-3xl font-bold text-slate-700 dark:text-slate-300"
+              className="mb-6 min-h-10 text-2xl md:text-3xl font-bold text-slate-700 dark:text-slate-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -133,13 +133,13 @@ export function Hero() {
 
           {/* Right: Profile Image */}
           <motion.div
-            className="flex-shrink-0"
+            className="shrink-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-blue-400 to-purple-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
               <ImageWithFallback
                 src="/header (2).jpg"
                 alt="Samson Demessie Ayalew"

@@ -27,7 +27,7 @@ const marqueeIcons = [...techIcons, ...techIcons];
 export function Skills() {
   return (
     <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-900">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-14"
           initial={{ opacity: 0, y: 24 }}
@@ -51,8 +51,8 @@ export function Skills() {
         viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        <div className="absolute inset-y-0 left-0 w-32 pointer-events-none bg-gradient-to-r from-slate-50 to-transparent dark:from-slate-900 z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 pointer-events-none bg-gradient-to-l from-slate-50 to-transparent dark:from-slate-900 z-10" />
+        <div className="absolute inset-y-0 left-0 w-32 pointer-events-none bg-linear-to-r from-slate-50 to-transparent dark:from-slate-900 z-10" />
+        <div className="absolute inset-y-0 right-0 w-32 pointer-events-none bg-linear-to-l from-slate-50 to-transparent dark:from-slate-900 z-10" />
 
         <div className="relative overflow-hidden">
           <div

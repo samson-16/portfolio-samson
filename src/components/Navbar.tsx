@@ -39,7 +39,7 @@ export function Navbar() {
     // Replace this URL with your actual resume link
     window.open(
       "https://drive.google.com/file/d/1ZbOFEJy2QXDmHiqADcRu9XsWUU2GBqCR/view?usp=sharing",
-      "_blank"
+      "_blank",
     );
   };
 
@@ -55,8 +55,8 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative flex items-center justify-between h-16 md:h-20">
             {/* Logo/Name */}
             <motion.a
               href="#"
@@ -199,7 +199,7 @@ export function Navbar() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="container mx-auto px-4 py-6">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                 <div className="flex flex-col space-y-4">
                   {navItems.map((item, index) => (
                     <motion.a

@@ -1,164 +1,331 @@
-import { motion } from 'motion/react';
-import { GraduationCap, Brain, Users, MapPin, Code2, Coffee, Sparkles } from 'lucide-react';
-import { Card } from './ui/card';
+import { motion } from "motion/react";
+import {
+  Monitor,
+  Code2,
+  MapPin,
+  CheckCircle2,
+  Target,
+  Zap,
+} from "lucide-react";
 
 export function About() {
-  const snapshots = [
+  const stats = [
     {
-      icon: GraduationCap,
-      text: 'BSc in Software Engineering – AASTU',
-      color: 'from-blue-500 to-cyan-500',
+      icon: Monitor,
+      value: "3+ Years",
+      label: "Engineering Experience",
+      iconColor: "text-blue-600 dark:text-blue-400",
     },
     {
-      icon: Brain,
-      text: '500+ DSA problems solved on Codeforces & LeetCode',
-      color: 'from-purple-500 to-pink-500',
+      icon: Code2,
+      value: "500+ Solved",
+      label: "DSA Problems",
+      iconColor: "text-blue-600 dark:text-blue-400",
     },
-   
     {
       icon: MapPin,
-      text: 'Based in Addis Ababa, Ethiopia',
-      color: 'from-green-500 to-emerald-500',
+      value: "Addis Ababa",
+      label: "Primary Location",
+      iconColor: "text-red-500 dark:text-red-400",
     },
   ];
 
-  const highlights = [
-    { icon: Code2, label: 'Clean Code', value: 'Always' },
-    { icon: Coffee, label: 'Problem Solver', value: '24/7' },
-    { icon: Sparkles, label: 'Innovation', value: 'Driven' },
+  const values = [
+    {
+      icon: CheckCircle2,
+      title: "Clean Code Architecture",
+      description:
+        "Prioritizing maintainability and readability across every project.",
+    },
+    {
+      icon: Target,
+      title: "Strategic Problem Solver",
+      description:
+        "Approaching complex challenges with a structured, data-driven mindset.",
+    },
+    {
+      icon: Zap,
+      title: "Constant Innovation",
+      description:
+        "Always exploring emerging technologies to stay at the digital frontier.",
+    },
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-20 bg-white dark:bg-slate-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ── Top Stats Row ── */}
         <motion.div
-          className="max-w-6xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
+          className="flex flex-col md:flex-row gap-4 mb-20"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Section Header */}
-          <div className="text-center mb-16">
+          {stats.map((stat, index) => (
             <motion.div
+              key={index}
+              className="
+                flex flex-1 items-center gap-4 px-6 py-5 rounded-2xl
+                bg-slate-50 dark:bg-slate-800/60
+                border border-slate-200 dark:border-slate-700/50
+                shadow-sm hover:shadow-md
+                hover:border-blue-200 dark:hover:border-blue-800/60
+                backdrop-blur-sm transition-all duration-300
+              "
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block"
+              transition={{ delay: 0.1 * index, duration: 0.5 }}
+              whileHover={{ scale: 1.02, y: -2 }}
             >
-              <span className="text-blue-600 dark:text-blue-400 mb-2 block">Get to know me</span>
-              <h2 className="mb-6 text-primary dark:text-white font-bold text-4xl">About Me</h2>
+              {/* Icon box */}
+              <div
+                className="
+                p-3 rounded-xl shrink-0
+                bg-blue-50 dark:bg-slate-700
+                border border-blue-100 dark:border-slate-600/50
+              "
+              >
+                <stat.icon
+                  className={`h-5 w-5 ${stat.iconColor}`}
+                  strokeWidth={2.5}
+                />
+              </div>
+
+              {/* Text */}
+              <div>
+                <p className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
+                  {stat.value}
+                </p>
+                <p className="text-xs font-medium tracking-widest uppercase text-slate-500 dark:text-slate-400 mt-0.5">
+                  {stat.label}
+                </p>
+              </div>
             </motion.div>
+          ))}
+        </motion.div>
 
-            <motion.p
-              className="text-slate-700 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed text-lg"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              I write code to solve real problems not just to ship features. 
-              I enjoy building things that feel simple on the outside but are powered by solid
-              engineering under the hood.
-            </motion.p>
-          </div>
-
-          {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            {/* Left Column - Story */}
-            <motion.div
-              className="lg:col-span-2"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              <Card className="p-8 h-full border-l-4 border-blue-600 dark:border-blue-400 hover:shadow-xl transition-shadow dark:bg-slate-800">
-                <h3 className="mb-4 text-blue-700 dark:text-white">My Journey</h3>
-                <div className="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed">
-                  <p>
-                    Over the past few years, I've worked on everything from AI-powered legal tools for Ethiopia to
-                    full-stack platforms that automate contracts and social apps with real-time features.
-                  </p>
-                  <p>
-                    I care a lot about <span className="text-blue-600 dark:text-blue-400">accessibility</span>, 
-                    <span className="text-blue-600 dark:text-blue-400"> performance</span>, and designing for people who usually get left out of tech.
-                  </p>
-                  <p>
-                    When I'm not coding, I'm probably solving algorithmic challenges, exploring new frameworks,
-                    or thinking about how technology can drive positive change in underserved communities.
-                  </p>
-                  <p>
-                    Let's collaborate to bring your vision to life. From concept to deployment, 
-                    I deliver high-quality software solutions that exceed expectations and drive real business results.
-                  </p>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* Right Column - Quick Stats */}
-            <motion.div
-              className="space-y-4"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              {highlights.map((highlight, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Card className="p-6 bg-gradient-to-br from-blue-50 to-white dark:from-blue-950 dark:to-slate-800 hover:shadow-lg transition-all">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-blue-600 dark:bg-blue-500 rounded-lg">
-                          <highlight.icon className="h-5 w-5 text-white" />
-                        </div>
-                        <div>
-                          <p className="text-sm text-slate-600 dark:text-slate-400">{highlight.label}</p>
-                          <p className="text-slate-900 dark:text-white">{highlight.value}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Snapshot Grid */}
+        {/* ── Mission + Code Editor ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center">
+          {/* Left – Mission & Core Values */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
+            transition={{ duration: 0.6 }}
           >
-            <h3 className="text-center mb-8 text-slate-900 dark:text-white">Quick Snapshot</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {snapshots.map((snapshot, index) => (
+            {/* Heading */}
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+              The{" "}
+              <span className="text-blue-600 dark:text-blue-400">Mission</span>{" "}
+              & Core Values
+            </h2>
+
+            {/* Paragraph */}
+            <p className="text-slate-600 dark:text-slate-300 mb-10 leading-relaxed">
+              I am a software engineer driven by the intersection of logical
+              rigor and creative problem-solving. My journey in tech is defined
+              by a commitment to clean code, performance optimization, and
+              building systems that matter.
+            </p>
+
+            {/* Feature Items */}
+            <div className="space-y-8">
+              {values.map((value, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  className="flex items-start gap-4"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.1 * index, duration: 0.5 }}
-                  whileHover={{ y: -8 }}
+                  transition={{ delay: 0.15 + 0.15 * index, duration: 0.5 }}
                 >
-                  <Card className="p-6 h-full hover:shadow-2xl transition-all duration-300 border-t-4 border-transparent hover:border-blue-600 dark:hover:border-blue-400 group dark:bg-slate-800">
-                    <div className="flex flex-col items-center text-center">
-                      <div className={`p-4 rounded-full bg-gradient-to-br ${snapshot.color} mb-4 group-hover:scale-110 transition-transform`}>
-                        <snapshot.icon className="h-6 w-6 text-white" />
-                      </div>
-                      <p className="text-slate-700 dark:text-slate-300 leading-snug">{snapshot.text}</p>
-                    </div>
-                  </Card>
+                  {/* Icon */}
+                  <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/40 shrink-0 mt-0.5">
+                    <value.icon className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <p className="font-semibold text-slate-900 dark:text-white">
+                      {value.title}
+                    </p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                      {value.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
-        </motion.div>
+
+          {/* Right – Code Editor Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/60 shadow-2xl">
+              {/* Title bar */}
+              <div
+                className="
+                flex items-center gap-2 px-4 py-3
+                bg-slate-100 dark:bg-slate-800
+                border-b border-slate-200 dark:border-slate-700/60
+              "
+              >
+                <span className="w-3 h-3 rounded-full bg-red-500" />
+                <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                <span className="w-3 h-3 rounded-full bg-green-500" />
+                <span className="ml-4 text-xs font-mono text-slate-500 dark:text-slate-400 select-none tracking-wide">
+                  about_me.ts
+                </span>
+              </div>
+
+              {/* Code body */}
+              <div className="bg-slate-50 dark:bg-slate-950 px-6 py-6 font-mono text-sm leading-7 overflow-x-auto">
+                {/* const engineer = { */}
+                <p>
+                  <span className="text-blue-600 dark:text-blue-400">
+                    const
+                  </span>
+                  <span className="text-slate-800 dark:text-slate-100">
+                    {" "}
+                    engineer{" "}
+                  </span>
+                  <span className="text-slate-600 dark:text-slate-300">
+                    {"= {"}
+                  </span>
+                </p>
+
+                {/* name: "Architect", */}
+                <p className="pl-6">
+                  <span className="text-blue-700 dark:text-blue-300">name</span>
+                  <span className="text-slate-600 dark:text-slate-300">
+                    {": "}
+                  </span>
+                  <span className="text-slate-500 dark:text-slate-400">"</span>
+                  <span className="text-blue-600 dark:text-blue-400">
+                    Architect
+                  </span>
+                  <span className="text-slate-500 dark:text-slate-400">"</span>
+                  <span className="text-slate-600 dark:text-slate-300">,</span>
+                </p>
+
+                {/* focus: ["Scalability", "Security", "UX"], */}
+                <p className="pl-6">
+                  <span className="text-blue-700 dark:text-blue-300">
+                    focus
+                  </span>
+                  <span className="text-slate-600 dark:text-slate-300">
+                    {": ["}
+                  </span>
+                  <span className="text-slate-500 dark:text-slate-400">"</span>
+                  <span className="text-blue-600 dark:text-blue-400">
+                    Scalability
+                  </span>
+                  <span className="text-slate-500 dark:text-slate-400">"</span>
+                  <span className="text-slate-600 dark:text-slate-300">, </span>
+                  <span className="text-slate-500 dark:text-slate-400">"</span>
+                  <span className="text-blue-600 dark:text-blue-400">
+                    Security
+                  </span>
+                  <span className="text-slate-500 dark:text-slate-400">"</span>
+                  <span className="text-slate-600 dark:text-slate-300">, </span>
+                  <span className="text-slate-500 dark:text-slate-400">"</span>
+                  <span className="text-blue-600 dark:text-blue-400">UX</span>
+                  <span className="text-slate-500 dark:text-slate-400">"</span>
+                  <span className="text-slate-600 dark:text-slate-300">],</span>
+                </p>
+
+                {/* mindset: () => { */}
+                <p className="pl-6">
+                  <span className="text-blue-700 dark:text-blue-300">
+                    mindset
+                  </span>
+                  <span className="text-slate-600 dark:text-slate-300">
+                    {": () => {"}
+                  </span>
+                </p>
+
+                {/* // Continuous learning loop */}
+                <p className="pl-10">
+                  <span className="text-slate-400 dark:text-slate-500">
+                    {"// Continuous learning loop"}
+                  </span>
+                </p>
+
+                {/* while (problemsExist) { */}
+                <p className="pl-10">
+                  <span className="text-blue-600 dark:text-blue-400">
+                    while{" "}
+                  </span>
+                  <span className="text-slate-600 dark:text-slate-300">(</span>
+                  <span className="text-slate-700 dark:text-slate-200">
+                    problemsExist
+                  </span>
+                  <span className="text-slate-600 dark:text-slate-300">
+                    {")"} {"{"}
+                  </span>
+                </p>
+
+                {/* analyze(); */}
+                <p className="pl-16">
+                  <span className="text-blue-700 dark:text-blue-300">
+                    analyze
+                  </span>
+                  <span className="text-slate-600 dark:text-slate-300">
+                    ();
+                  </span>
+                </p>
+
+                {/* solve(); */}
+                <p className="pl-16">
+                  <span className="text-blue-700 dark:text-blue-300">
+                    solve
+                  </span>
+                  <span className="text-slate-600 dark:text-slate-300">
+                    ();
+                  </span>
+                </p>
+
+                {/* innovate(); */}
+                <p className="pl-16">
+                  <span className="text-blue-700 dark:text-blue-300">
+                    innovate
+                  </span>
+                  <span className="text-slate-600 dark:text-slate-300">
+                    ();
+                  </span>
+                </p>
+
+                {/* closing } while */}
+                <p className="pl-10">
+                  <span className="text-slate-600 dark:text-slate-300">
+                    {"}"}
+                  </span>
+                </p>
+
+                {/* closing } mindset */}
+                <p className="pl-6">
+                  <span className="text-slate-600 dark:text-slate-300">
+                    {"}"}
+                  </span>
+                </p>
+
+                {/* closing }; */}
+                <p>
+                  <span className="text-slate-600 dark:text-slate-300">
+                    {"}"}
+                  </span>
+                  <span className="text-slate-600 dark:text-slate-300">;</span>
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

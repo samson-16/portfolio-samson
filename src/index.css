@@ -145,11 +145,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 /*---break--- */
-@custom-variant dark (&:is(.dark *));S C:\Projects\Portfolio\PortfolioWebsite> npx shadcn@latest add https://www.shadcn.io/registry/marquee.json
-√ You need to create a components.json file to add components. Proceed? ... yes
-
-No import alias found in your tsconfig.json file.
-Visit https://ui.shadcn.com/docs/installation/vite to learn how to set an import alias.
+@custom-variant dark (&:is(.dark *));
 
 @layer base {
   *, :after, :before, ::backdrop {
