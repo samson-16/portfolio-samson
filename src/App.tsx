@@ -23,10 +23,10 @@ export default function App() {
         outerAlpha={0}
         hasBlendMode={true}
         innerStyle={{
-          backgroundColor: "rgb(59, 130, 246)",
+          backgroundColor: "#00509d",
         }}
         outerStyle={{
-          border: "3px solid rgb(59, 130, 246)",
+          border: "3px solid #00509d",
         }}
         clickables={[
           "a",

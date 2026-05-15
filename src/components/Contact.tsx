@@ -161,7 +161,7 @@ export function Contact() {
                     <div className="flex flex-col gap-1.5">
                       <label
                         htmlFor="name"
-                        className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400"
+                        className="text-xs font-semibold uppercase tracking-widest text-white"
                       >
                         Your Name
                       </label>
@@ -178,7 +178,7 @@ export function Contact() {
                     <div className="flex flex-col gap-1.5">
                       <label
                         htmlFor="email"
-                        className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400"
+                        className="text-xs font-semibold uppercase tracking-widest text-white"
                       >
                         Email Address
                       </label>
@@ -199,7 +199,7 @@ export function Contact() {
                   <div className="flex flex-col gap-1.5">
                     <label
                       htmlFor="subject"
-                      className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400"
+                      className="text-xs font-semibold uppercase tracking-widest text-white"
                     >
                       Subject
                     </label>
@@ -217,7 +217,7 @@ export function Contact() {
                   <div className="flex flex-col gap-1.5">
                     <label
                       htmlFor="message"
-                      className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400"
+                      className="text-xs font-semibold uppercase tracking-widest text-white"
                     >
                       Message
                     </label>

@@ -12,13 +12,13 @@ export function About() {
   const stats = [
     {
       icon: Monitor,
-      value: "3+ Years",
+      value: "2+ Years",
       label: "Engineering Experience",
       iconColor: "text-blue-600 dark:text-blue-400",
     },
     {
       icon: Code2,
-      value: "500+ Solved",
+      value: "600+ Solved",
       label: "DSA Problems",
       iconColor: "text-blue-600 dark:text-blue-400",
     },
@@ -117,13 +117,12 @@ export function About() {
           >
             {/* Heading */}
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
-              The{" "}
-              <span className="text-blue-600 dark:text-blue-400">Mission</span>{" "}
-              & Core Values
+              <span className="text-blue-600 dark:text-blue-400">About</span>{" "}
+              Me
             </h2>
 
             {/* Paragraph */}
-            <p className="text-slate-600 dark:text-slate-300 mb-10 leading-relaxed">
+            <p className="text-white mb-10 leading-relaxed">
               I am a software engineer driven by the intersection of logical
               rigor and creative problem-solving. My journey in tech is defined
               by a commitment to clean code, performance optimization, and
@@ -208,7 +207,7 @@ export function About() {
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">"</span>
                   <span className="text-blue-600 dark:text-blue-400">
-                    Architect
+                    Samson Demessie
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">"</span>
                   <span className="text-slate-600 dark:text-slate-300">,</span>
@@ -224,18 +223,18 @@ export function About() {
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">"</span>
                   <span className="text-blue-600 dark:text-blue-400">
-                    Scalability
+                    Full-Stack Development
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">"</span>
                   <span className="text-slate-600 dark:text-slate-300">, </span>
                   <span className="text-slate-500 dark:text-slate-400">"</span>
                   <span className="text-blue-600 dark:text-blue-400">
-                    Security
+                    AI/ML Integration
                   </span>
                   <span className="text-slate-500 dark:text-slate-400">"</span>
                   <span className="text-slate-600 dark:text-slate-300">, </span>
                   <span className="text-slate-500 dark:text-slate-400">"</span>
-                  <span className="text-blue-600 dark:text-blue-400">UX</span>
+                  <span className="text-blue-600 dark:text-blue-400">Scalable UX</span>
                   <span className="text-slate-500 dark:text-slate-400">"</span>
                   <span className="text-slate-600 dark:text-slate-300">],</span>
                 </p>

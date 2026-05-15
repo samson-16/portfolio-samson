@@ -29,15 +29,24 @@ export function Projects() {
       image: "/chatter.png",
     },
     {
-      title: "Lucy Sourcing",
+      title: "Maed (DineSplit)",
       description:
-        "Strategic sourcing platform designed to streamline vendor management and procurement workflows.",
-      tech: ["React", "Prisma", "PostgreSQL"],
-      liveDemo:
-        "https://www.figma.com/make/lYx76oehDxQr25hmmF7LRo/FabriNet-Website-Design?node-id=0-1&p=f&t=vJbiOMJhXfQKwedS-0&fullscreen=1",
-      github: "https://github.com/samson-16/Fabrinetwebsitedesign",
-      image: "/Lucy.png",
+        "Cross-platform mobile app for bill splitting and restaurant discovery, built to simplify group dining with VAT, tips, and shared-item calculations.",
+      tech: ["React Native Expo", "Express", "TypeScript"],
+      liveDemo: "#",
+      github: "https://github.com/samson-16/dine-split",
+      image: "/maed.png",
     },
+    // {
+    //   title: "Lucy Sourcing",
+    //   description:
+    //     "Strategic sourcing platform designed to streamline vendor management and procurement workflows.",
+    //   tech: ["React", "Prisma", "PostgreSQL"],
+    //   liveDemo:
+    //     "https://www.figma.com/make/lYx76oehDxQr25hmmF7LRo/FabriNet-Website-Design?node-id=0-1&p=f&t=vJbiOMJhXfQKwedS-0&fullscreen=1",
+    //   github: "https://github.com/samson-16/Fabrinetwebsitedesign",
+    //   image: "/Lucy.png",
+    // },
     {
       title: "Subscription Tracker",
       description:

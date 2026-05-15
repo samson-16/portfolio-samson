@@ -41,3 +41,8 @@ coverage
 # Misc
 .turbo
 *.tsbuildinfo
+
+# Local agent tooling
+.agents/
+.claude/
+.kiro/

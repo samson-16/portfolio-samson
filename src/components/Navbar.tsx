@@ -7,6 +7,7 @@ import { useTheme } from "./ThemeProvider";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
   const { theme, toggleTheme } = useTheme();
 
   const navItems = [
@@ -20,8 +21,32 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      const scrollPosition = window.scrollY + window.innerHeight * 0.35;
+      let currentSection = "about";
+
+      for (const item of navItems) {
+        const id = item.href.replace("#", "");
+        const section = document.getElementById(id);
+
+        if (!section) continue;
+
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionBottom
+        ) {
+          currentSection = id;
+          break;
+        }
+      }
+
+      setActiveSection(currentSection);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -85,13 +110,24 @@ export function Navbar() {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
+                  className={`relative pb-1 transition-colors cursor-pointer ${
+                    activeSection === item.href.replace("#", "")
+                      ? "text-blue-600 dark:text-blue-400"
+                      : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  }`}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
                   whileHover={{ scale: 1.05 }}
                 >
                   {item.label}
+                  <span
+                    className={`absolute left-0 -bottom-0.5 h-0.5 rounded-full bg-blue-600 dark:bg-blue-400 transition-all duration-300 ${
+                      activeSection === item.href.replace("#", "")
+                        ? "w-full opacity-100"
+                        : "w-0 opacity-0"
+                    }`}
+                  />
                 </motion.a>
               ))}
             </div>
@@ -209,12 +245,23 @@ export function Navbar() {
                         e.preventDefault();
                         scrollToSection(item.href);
                       }}
-                      className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 cursor-pointer"
+                      className={`relative py-2 cursor-pointer transition-colors ${
+                        activeSection === item.href.replace("#", "")
+                          ? "text-blue-600 dark:text-blue-400"
+                          : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
+                      }`}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.05 * index }}
                     >
                       {item.label}
+                      <span
+                        className={`absolute left-0 bottom-0 h-0.5 rounded-full bg-blue-600 dark:bg-blue-400 transition-all duration-300 ${
+                          activeSection === item.href.replace("#", "")
+                            ? "w-12 opacity-100"
+                            : "w-0 opacity-0"
+                        }`}
+                      />
                     </motion.a>
                   ))}
                   <motion.div
