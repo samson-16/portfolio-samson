@@ -141,7 +141,7 @@ export function Hero() {
             <div className="relative">
               <div className="absolute inset-0 bg-linear-to-br from-blue-400 to-purple-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
               <ImageWithFallback
-                src="/header (2).jpg"
+                src="/header-profile.jpg"
                 alt="Samson Demessie Ayalew"
                 className="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-8 border-white dark:border-slate-800 shadow-2xl"
               />

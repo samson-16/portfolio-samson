@@ -16,12 +16,12 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-slate-900 dark:bg-black text-white py-12">
+    <footer className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white border-t border-slate-200 dark:border-slate-800 py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Quick Links */}
           <div className="mb-8">
-            <h3 className="text-center text-lg font-semibold mb-4 text-slate-300">
+            <h3 className="text-center text-lg font-semibold mb-4 text-slate-900 dark:text-slate-200">
               Quick Links
             </h3>
             <div className="flex flex-wrap justify-center gap-6">
@@ -29,7 +29,7 @@ export function Footer() {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300"
+                  className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
                 >
                   {link.label}
                 </button>
@@ -43,7 +43,7 @@ export function Footer() {
               href="https://github.com/samson-16"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-slate-800 dark:bg-slate-900 hover:bg-blue-600 dark:hover:bg-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/50"
+              className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30 dark:hover:shadow-blue-600/50"
             >
               <Github className="h-5 w-5" />
             </a>
@@ -51,13 +51,13 @@ export function Footer() {
               href="https://www.linkedin.com/in/samson-demessie/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-slate-800 dark:bg-slate-900 hover:bg-blue-600 dark:hover:bg-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/50"
+              className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30 dark:hover:shadow-blue-600/50"
             >
               <Linkedin className="h-5 w-5" />
             </a>
             <a
               href="mailto:samsondemessie@gmail.com"
-              className="p-3 rounded-full bg-slate-800 dark:bg-slate-900 hover:bg-blue-600 dark:hover:bg-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/50"
+              className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30 dark:hover:shadow-blue-600/50"
             >
               <Mail className="h-5 w-5" />
             </a>
@@ -65,8 +65,8 @@ export function Footer() {
 
           {/* Copyright */}
           <div className="text-center space-y-2">
-            <p className="text-slate-400">
-              © {currentYear} Samson Demessie Ayalew. All rights reserved.
+            <p className="text-slate-500 dark:text-slate-400">
+              &copy; {currentYear} Samson Demessie Ayalew. All rights reserved.
             </p>
           </div>
         </div>
