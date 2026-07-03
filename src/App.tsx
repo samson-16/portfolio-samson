@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { motion } from "motion/react";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
@@ -8,13 +10,23 @@ import { Skills } from "./components/Skills";
 import { Education } from "./components/Education";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { WelcomeLoader } from "./components/WelcomeLoader";
 import { DottedGlowBackground } from "./components/ui/dotted-glow-background";
 import { Toaster } from "./components/ui/sonner";
 import AnimatedCursor from "react-animated-cursor";
 
 export default function App() {
+  const [isIntroComplete, setIsIntroComplete] = useState(() => {
+    try {
+      return sessionStorage.getItem("samson-portfolio-welcome-seen") === "true";
+    } catch {
+      return false;
+    }
+  });
+
   return (
     <ThemeProvider>
+      <WelcomeLoader onComplete={() => setIsIntroComplete(true)} />
       <AnimatedCursor
         innerSize={8}
         outerSize={35}
@@ -42,18 +54,27 @@ export default function App() {
           ".link",
         ]}
       />
-      <DottedGlowBackground>
-        <Navbar />
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Education />
-        <Contact />
-        <Footer />
-        <Toaster />
-      </DottedGlowBackground>
+      <motion.div
+        initial={false}
+        animate={{
+          opacity: isIntroComplete ? 1 : 0.96,
+          y: isIntroComplete ? 0 : 8,
+        }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+      >
+        <DottedGlowBackground>
+          <Navbar />
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Education />
+          <Contact />
+          <Footer />
+          <Toaster />
+        </DottedGlowBackground>
+      </motion.div>
     </ThemeProvider>
   );
 }

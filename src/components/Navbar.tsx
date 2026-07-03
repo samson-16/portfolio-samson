@@ -4,6 +4,38 @@ import { Menu, X, Moon, Sun, FileText } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTheme } from "./ThemeProvider";
 
+function ThemeModeIcon({ theme }: { theme: "light" | "dark" }) {
+  return (
+    <span className="relative flex h-5 w-5 items-center justify-center overflow-hidden">
+      <AnimatePresence mode="wait" initial={false}>
+        {theme === "light" ? (
+          <motion.span
+            key="moon"
+            className="absolute"
+            initial={{ opacity: 0, rotate: -90, scale: 0.45 }}
+            animate={{ opacity: 1, rotate: 0, scale: 1 }}
+            exit={{ opacity: 0, rotate: 90, scale: 0.45 }}
+            transition={{ duration: 0.24, ease: "easeOut" }}
+          >
+            <Moon className="h-5 w-5" />
+          </motion.span>
+        ) : (
+          <motion.span
+            key="sun"
+            className="absolute"
+            initial={{ opacity: 0, rotate: 90, scale: 0.45 }}
+            animate={{ opacity: 1, rotate: 0, scale: 1 }}
+            exit={{ opacity: 0, rotate: -90, scale: 0.45 }}
+            transition={{ duration: 0.24, ease: "easeOut" }}
+          >
+            <Sun className="h-5 w-5" />
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </span>
+  );
+}
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -157,16 +189,12 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
                 onClick={toggleTheme}
-                className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                aria-label="Toggle theme"
+                className="relative overflow-hidden p-2 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {theme === "light" ? (
-                  <Moon className="h-5 w-5 text-slate-700 dark:text-slate-300" />
-                ) : (
-                  <Sun className="h-5 w-5 text-slate-700 dark:text-slate-300" />
-                )}
+                <ThemeModeIcon theme={theme} />
               </motion.button>
 
               {/* Get In Touch Button */}
@@ -189,17 +217,13 @@ export function Navbar() {
             <div className="md:hidden flex items-center gap-2">
               <button
                 onClick={toggleTheme}
-                className="p-2 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                aria-label="Toggle theme"
+                className="relative overflow-hidden rounded-full p-2 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
               >
-                {theme === "light" ? (
-                  <Moon className="h-5 w-5" />
-                ) : (
-                  <Sun className="h-5 w-5" />
-                )}
+                <ThemeModeIcon theme={theme} />
               </button>
               <button
-                className="p-2 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="relative overflow-hidden rounded-full p-2 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle menu"
               >
@@ -297,3 +321,5 @@ export function Navbar() {
     </>
   );
 }
+
+
