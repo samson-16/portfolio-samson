@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -8,6 +8,7 @@ const CARDS_PER_PAGE = 3;
 export function Projects() {
   const [page, setPage] = useState(0);
   const [dir, setDir] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
 
   const projects = [
     {
@@ -91,6 +92,17 @@ export function Projects() {
     page * CARDS_PER_PAGE + CARDS_PER_PAGE,
   );
 
+  useEffect(() => {
+    if (isPaused || totalPages <= 1) return;
+
+    const autoplayTimer = window.setInterval(() => {
+      setDir(1);
+      setPage((currentPage) => (currentPage + 1) % totalPages);
+    }, 4500);
+
+    return () => window.clearInterval(autoplayTimer);
+  }, [isPaused, totalPages]);
+
   function goNext() {
     if (page < totalPages - 1) {
       setDir(1);
@@ -112,7 +124,18 @@ export function Projects() {
   };
 
   return (
-    <section id="projects" className="tech-grid-section bg-white py-24 dark:bg-slate-900">
+    <section
+      id="projects"
+      className="tech-grid-section bg-white py-24 dark:bg-slate-900"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setIsPaused(false);
+        }
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Header row ── */}
         <div className="flex items-start justify-between gap-6 mb-14">
