@@ -22,7 +22,7 @@ export function Education() {
   return (
     <section
       id="education"
-      className="py-24 bg-slate-50 dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800"
+      className="tech-grid-section border-y border-slate-200 bg-slate-50 py-24 dark:border-slate-800 dark:bg-slate-900"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -32,10 +32,16 @@ export function Education() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-12">
-            <span className="text-slate-900 dark:text-white">Education & </span>
-            <span className="text-blue-600 dark:text-blue-400">Recognition</span>
-          </h2>
+          <div className="section-heading">
+            <div className="section-kicker">Education</div>
+            <h2 className="section-title">
+              Learning & <span className="section-title-accent">Recognition</span>
+            </h2>
+            <p className="section-copy">
+              Academic foundations and intensive programs that strengthened my
+              software engineering and problem-solving practice.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {education.map((item, index) => (
@@ -46,7 +52,7 @@ export function Education() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 * index, duration: 0.5 }}
               >
-                <article className="h-full rounded-2xl border border-slate-200 dark:border-slate-700/60 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-800/60 transition-all duration-300 p-6 md:p-7">
+                <article className="tech-surface h-full rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg dark:hover:border-blue-800/60 md:p-7">
                   <div className="flex items-start gap-4 md:gap-5">
                     <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-700/70 border border-slate-200 dark:border-slate-600/50 shrink-0">
                       <item.icon className="h-5 w-5 text-blue-600 dark:text-blue-400" />

@@ -102,7 +102,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-y border-slate-200 bg-slate-50 py-24 dark:border-slate-800 dark:bg-slate-900"
+      className="tech-grid-section relative overflow-hidden border-y border-slate-200 bg-slate-50 py-24 dark:border-slate-800 dark:bg-slate-900"
     >
       <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-500/5" />
       <div className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-500/5" />
@@ -122,9 +122,9 @@ export function Contact() {
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   Available for new projects
                 </div>
-                <h2 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white md:text-5xl">
+                <h2 className="section-title mb-4">
                   Let&apos;s build something{" "}
-                  <span className="text-blue-600 dark:text-blue-400">
+                  <span className="section-title-accent">
                     meaningful.
                   </span>
                 </h2>
@@ -182,7 +182,7 @@ export function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
             >
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700/60 dark:bg-slate-800/70 md:p-8">
+              <div className="tech-surface rounded-2xl p-6 md:p-8">
                 <div className="mb-6">
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white">
                     Send me a message

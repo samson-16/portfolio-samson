@@ -26,20 +26,22 @@ const marqueeIcons = [...techIcons, ...techIcons];
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-900">
+    <section id="skills" className="tech-grid-section bg-slate-50 py-24 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-14"
+          className="section-heading"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Skills & Technologies
+          <div className="section-kicker">Toolbox</div>
+          <h2 className="section-title">
+            Skills & <span className="section-title-accent">Technologies</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-lg">
-            Technologies I work with to build modern web applications
+          <p className="section-copy">
+            The technologies I use to design, build, deploy, and scale modern
+            digital products.
           </p>
         </motion.div>
       </div>
@@ -64,7 +66,7 @@ export function Skills() {
                 key={`${tech.label}-${index}`}
                 className="flex flex-col items-center justify-center gap-3"
               >
-                <div className="flex h-16 w-16 items-center justify-center transition-transform duration-300 hover:scale-110">
+                <div className="tech-surface flex h-20 w-20 items-center justify-center rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:scale-105">
                   <i
                     className={`devicon-${tech.icon}-plain colored text-6xl`}
                   ></i>

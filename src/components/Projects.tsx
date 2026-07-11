@@ -112,17 +112,17 @@ export function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24 bg-white dark:bg-slate-900">
+    <section id="projects" className="tech-grid-section bg-white py-24 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Header row ── */}
         <div className="flex items-start justify-between gap-6 mb-14">
           {/* Left: title + subtitle */}
-          <div className="max-w-xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 leading-tight">
-              Selected{" "}
-              <span className="text-blue-600 dark:text-blue-400">Works</span>
+          <div className="max-w-2xl">
+            <div className="section-kicker">Projects</div>
+            <h2 className="section-title">
+              Selected <span className="section-title-accent">Works</span>
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="section-copy">
               A curated showcase of engineering projects, ranging from AI
               applications to complex web architectures.
             </p>
@@ -180,11 +180,9 @@ export function Projects() {
             {visible.map((project, index) => (
               <motion.div
                 key={project.title}
-                className="flex flex-col rounded-2xl overflow-hidden
-                  bg-slate-50 dark:bg-slate-800/70
-                  border border-slate-200 dark:border-slate-700/60
+                className="tech-surface group flex flex-col rounded-2xl overflow-hidden
                   shadow-sm hover:shadow-xl hover:shadow-blue-900/10
-                  hover:-translate-y-1 hover:border-blue-200 dark:hover:border-blue-800/60
+                  hover:-translate-y-1 hover:border-blue-300 dark:hover:border-blue-800/60
                   transition-all duration-300 h-full"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}

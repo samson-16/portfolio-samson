@@ -52,7 +52,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-slate-900">
+    <section id="about" className="tech-grid-section bg-white py-24 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Top Stats Row ── */}
         <motion.div
@@ -66,9 +66,7 @@ export function About() {
             <motion.div
               key={index}
               className="
-                flex flex-1 items-center gap-4 px-6 py-5 rounded-2xl
-                bg-slate-50 dark:bg-slate-800/60
-                border border-slate-200 dark:border-slate-700/50
+                tech-surface flex flex-1 items-center gap-4 px-6 py-5 rounded-2xl
                 shadow-sm hover:shadow-md
                 hover:border-blue-200 dark:hover:border-blue-800/60
                 backdrop-blur-sm transition-all duration-300
@@ -115,14 +113,13 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
-              <span className="text-blue-600 dark:text-blue-400">About</span>{" "}
-              Me
+            <div className="section-kicker">Profile</div>
+            <h2 className="section-title mb-6">
+              About <span className="section-title-accent">Me</span>
             </h2>
 
             {/* Paragraph */}
-            <p className="text-white mb-10 leading-relaxed">
+            <p className="mb-10 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg">
              I’m a full-stack and mobile developer based in Addis Ababa, focused on building practical web, mobile, and AI-powered products.
 
 I work with React, Next.js, TypeScript, NestJS, Node.js, Prisma, PostgreSQL, Mongodb, Supabase, FastAPI, and React Native. I enjoy turning ideas into clean, usable products, from backend APIs and dashboards to mobile apps and intelligent tools.
@@ -167,7 +164,7 @@ My work combines strong problem-solving, clean code, and product thinking to bui
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/60 shadow-2xl">
+            <div className="tech-surface rounded-2xl overflow-hidden shadow-2xl">
               {/* Title bar */}
               <div
                 className="

@@ -10,8 +10,10 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+    <section className="tech-grid-section relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="pointer-events-none absolute left-[12%] top-[18%] h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute right-[8%] top-[28%] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-16">
           {/* Left: Text Content */}
           <motion.div
@@ -24,26 +26,24 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 rounded-full mb-6"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white/65 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-blue-700 shadow-sm backdrop-blur-md dark:border-blue-800/70 dark:bg-blue-950/50 dark:text-blue-300"
             >
+              <span className="h-2 w-2 rounded-full bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
               Available for opportunities
             </motion.div>
 
             <motion.h1
-              className="mb-4 font-extrabold tracking-tight text-slate-900 dark:text-white"
-              style={{
-                fontSize: "clamp(0.5rem, 6vw, 2.25rem)",
-                lineHeight: 1.05,
-              }}
+              className="mb-5 text-4xl font-extrabold leading-[1.02] tracking-[-0.055em] text-slate-950 dark:text-white sm:text-5xl lg:text-6xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              Samson Demessie Ayalew
+              Samson Demessie{" "}
+              <span className="section-title-accent">Ayalew.</span>
             </motion.h1>
 
             <motion.h2
-              className="mb-6 min-h-10 text-2xl md:text-3xl font-bold text-slate-700 dark:text-slate-300"
+              className="mb-6 min-h-10 text-xl font-semibold tracking-tight text-slate-700 dark:text-slate-300 sm:text-2xl lg:text-3xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -64,7 +64,7 @@ export function Hero() {
             </motion.h2>
 
             <motion.p
-              className="text-slate-700 dark:text-slate-300 max-w-2xl mb-8 leading-relaxed"
+              className="mb-9 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -139,11 +139,11 @@ export function Hero() {
             transition={{ delay: 0.4, duration: 0.6 }}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-linear-to-br from-blue-400 to-purple-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <div className="absolute inset-0 rounded-full bg-linear-to-br from-blue-500 to-cyan-400 blur-2xl opacity-25 animate-pulse"></div>
               <ImageWithFallback
                 src="/header-profile.jpg"
                 alt="Samson Demessie Ayalew"
-                className="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-8 border-white dark:border-slate-800 shadow-2xl"
+                className="relative h-64 w-64 rounded-full border-8 border-white/90 object-cover shadow-2xl ring-1 ring-blue-200/70 dark:border-slate-800/90 dark:ring-blue-800/60 md:h-80 md:w-80"
               />
             </div>
           </motion.div>

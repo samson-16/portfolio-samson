@@ -41,22 +41,24 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 bg-slate-50 dark:bg-slate-900">
+    <section id="experience" className="tech-grid-section bg-slate-50 py-24 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Heading ── */}
         <motion.div
-          className="text-center mb-20"
+          className="section-heading"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            <span className="text-slate-900 dark:text-white">
-              Professional{" "}
-            </span>
-            <span className="text-blue-600 dark:text-blue-400">Timeline</span>
+          <div className="section-kicker">Experience</div>
+          <h2 className="section-title">
+            Professional <span className="section-title-accent">Timeline</span>
           </h2>
+          <p className="section-copy">
+            A record of the teams, products, and engineering challenges that
+            have shaped my approach to building reliable software.
+          </p>
         </motion.div>
 
         {/* ── Timeline — no max-width so cards go end to end ── */}
@@ -86,7 +88,7 @@ export function Experience() {
                 </div>
 
                 {/* ── Card — flex-1 so it fills all remaining width ── */}
-                <div className="flex-1 rounded-2xl border border-slate-200 dark:border-slate-700/60 bg-white dark:bg-slate-800 shadow-sm hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-800/60 transition-all duration-300 p-7 md:p-8">
+                <div className="tech-surface flex-1 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg dark:hover:border-blue-800/70 md:p-8">
                   {/* Top row: company name (left) | period (right) */}
                   <div className="flex items-center justify-between gap-4 mb-3">
                     {/* Left: company name only */}
