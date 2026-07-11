@@ -123,10 +123,11 @@ export function About() {
 
             {/* Paragraph */}
             <p className="text-white mb-10 leading-relaxed">
-              I am a software engineer driven by the intersection of logical
-              rigor and creative problem-solving. My journey in tech is defined
-              by a commitment to clean code, performance optimization, and
-              building systems that matter.
+             I’m a full-stack and mobile developer based in Addis Ababa, focused on building practical web, mobile, and AI-powered products.
+
+I work with React, Next.js, TypeScript, NestJS, Node.js, Prisma, PostgreSQL, Mongodb, Supabase, FastAPI, and React Native. I enjoy turning ideas into clean, usable products, from backend APIs and dashboards to mobile apps and intelligent tools.
+
+My work combines strong problem-solving, clean code, and product thinking to build systems that are reliable, scalable, and easy to maintain..
             </p>
 
             {/* Feature Items */}
@@ -234,7 +235,7 @@ export function About() {
                   <span className="text-slate-500 dark:text-slate-400">"</span>
                   <span className="text-slate-600 dark:text-slate-300">, </span>
                   <span className="text-slate-500 dark:text-slate-400">"</span>
-                  <span className="text-blue-600 dark:text-blue-400">Scalable UX</span>
+                  <span className="text-blue-600 dark:text-blue-400">Mobile Apps</span>
                   <span className="text-slate-500 dark:text-slate-400">"</span>
                   <span className="text-slate-600 dark:text-slate-300">],</span>
                 </p>
