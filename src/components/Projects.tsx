@@ -12,6 +12,24 @@ export function Projects() {
 
   const projects = [
     {
+      title: "Lucy Sourcing",
+      description:
+        "Responsive industrial sourcing website for presenting product categories, sourcing services, blog content, and inquiry workflows.",
+      tech: ["React", "Vite", "TypeScript", "Sanity"],
+      liveDemo: "https://lucy-sourcing.vercel.app/",
+      github: "https://github.com/samson-16/Lucy-sourcing",
+      image: "/lucy-sourcing.png",
+    },
+    {
+      title: "BookBuddy AI",
+      description:
+        "FastAPI and Next.js reading workspace for PDF books with uploads, chapter summaries, and page-cited Q&A.",
+      tech: ["Next.js", "FastAPI", "PDFPlumber", "Hugging Face"],
+      liveDemo: "https://book-buddy-ai-five.vercel.app/",
+      github: "https://github.com/samson-16/Book-Buddy-Ai",
+      image: "/book-buddy-ai.png",
+    },
+    {
       title: "LawGen",
       description:
         "AI-powered legal document generation platform automating contract drafting and verification for Ethiopian law.",
@@ -38,16 +56,6 @@ export function Projects() {
       github: "https://github.com/samson-16/dine-split",
       image: "/maed.png",
     },
-    // {
-    //   title: "Lucy Sourcing",
-    //   description:
-    //     "Strategic sourcing platform designed to streamline vendor management and procurement workflows.",
-    //   tech: ["React", "Prisma", "PostgreSQL"],
-    //   liveDemo:
-    //     "https://www.figma.com/make/lYx76oehDxQr25hmmF7LRo/FabriNet-Website-Design?node-id=0-1&p=f&t=vJbiOMJhXfQKwedS-0&fullscreen=1",
-    //   github: "https://github.com/samson-16/Fabrinetwebsitedesign",
-    //   image: "/Lucy.png",
-    // },
     {
       title: "Subscription Tracker",
       description:
