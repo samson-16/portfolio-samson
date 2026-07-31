@@ -45,7 +45,7 @@ export function Navbar() {
   const navItems = [
     { label: "About", href: "#about" },
     { label: "Experience", href: "#experience" },
-    { label: "Community", href: "#leadership" },
+    { label: "Community", href: "#community" },
     { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
     { label: "Education", href: "#education" },

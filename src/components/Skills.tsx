@@ -26,7 +26,7 @@ const marqueeIcons = [...techIcons, ...techIcons];
 
 export function Skills() {
   return (
-    <section id="skills" className="tech-grid-section bg-slate-50 py-24 dark:bg-slate-900">
+    <section id="skills" className="tech-grid-section border-y border-slate-200 bg-slate-50 py-24 dark:border-slate-800 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="section-heading"

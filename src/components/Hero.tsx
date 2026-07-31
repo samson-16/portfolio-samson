@@ -10,7 +10,7 @@ export function Hero() {
   };
 
   return (
-    <section className="tech-grid-section relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="tech-grid-section relative min-h-screen flex items-center justify-center overflow-hidden border-y border-slate-200 dark:border-slate-800">
       <div className="pointer-events-none absolute left-[12%] top-[18%] h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
       <div className="pointer-events-none absolute right-[8%] top-[28%] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">

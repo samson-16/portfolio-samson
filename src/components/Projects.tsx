@@ -134,7 +134,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="tech-grid-section bg-white py-24 dark:bg-slate-900"
+      className="tech-grid-section border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocusCapture={() => setIsPaused(true)}

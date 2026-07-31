@@ -2824,6 +2824,35 @@ html {
     0 22px 55px -34px rgb(2 132 199 / 0.32);
 }
 
+/* Remove the glowing edge effect from cards in About, Education, Experience, Skills, and Community sections */
+#about .tech-surface::before,
+#education .tech-surface::before,
+#experience .tech-surface::before,
+#skills .tech-surface::before,
+#community .tech-surface::before {
+  display: none;
+}
+
+#about .tech-surface,
+#education .tech-surface,
+#experience .tech-surface,
+#skills .tech-surface,
+#community .tech-surface {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.9),
+    0 18px 45px -32px rgb(15 23 42 / 0.42);
+}
+
+.dark #about .tech-surface,
+.dark #education .tech-surface,
+.dark #experience .tech-surface,
+.dark #skills .tech-surface,
+.dark #community .tech-surface {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.04),
+    0 22px 55px -34px rgb(0 0 0 / 0.42);
+}
+
 @media (min-width: 768px) {
   .section-copy {
     font-size: 1.0625rem;

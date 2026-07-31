@@ -10,14 +10,14 @@ export function Footer() {
   const quickLinks = [
     { label: "About", id: "about" },
     { label: "Experience", id: "experience" },
-    { label: "Community", id: "leadership" },
+    { label: "Community", id: "community" },
     { label: "Projects", id: "projects" },
     { label: "Skills", id: "skills" },
     { label: "Education", id: "education" },
   ];
 
   return (
-    <footer className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white border-t border-slate-200 dark:border-slate-800 py-12">
+    <footer className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white border-y border-slate-200 dark:border-slate-800 py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Quick Links */}
