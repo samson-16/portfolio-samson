@@ -1,35 +1,11 @@
 import { motion } from "motion/react";
 import {
-  Monitor,
-  Code2,
-  MapPin,
   CheckCircle2,
   Target,
   Zap,
 } from "lucide-react";
 
 export function About() {
-  const stats = [
-    {
-      icon: Monitor,
-      value: "2+ Years",
-      label: "Engineering Experience",
-      iconColor: "text-blue-600 dark:text-blue-400",
-    },
-    {
-      icon: Code2,
-      value: "600+ Solved",
-      label: "DSA Problems",
-      iconColor: "text-blue-600 dark:text-blue-400",
-    },
-    {
-      icon: MapPin,
-      value: "Addis Ababa",
-      label: "Primary Location",
-      iconColor: "text-red-500 dark:text-red-400",
-    },
-  ];
-
   const values = [
     {
       icon: CheckCircle2,
@@ -54,56 +30,6 @@ export function About() {
   return (
     <section id="about" className="tech-grid-section border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ── Top Stats Row ── */}
-        <motion.div
-          className="flex flex-col md:flex-row gap-4 mb-20"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              className="
-                tech-surface flex flex-1 items-center gap-4 px-6 py-5 rounded-2xl
-                shadow-sm hover:shadow-md
-                hover:border-blue-200 dark:hover:border-blue-800/60
-                backdrop-blur-sm transition-all duration-300
-              "
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 * index, duration: 0.5 }}
-              whileHover={{ scale: 1.02, y: -2 }}
-            >
-              {/* Icon box */}
-              <div
-                className="
-                p-3 rounded-xl shrink-0
-                bg-blue-50 dark:bg-slate-700
-                border border-blue-100 dark:border-slate-600/50
-              "
-              >
-                <stat.icon
-                  className={`h-5 w-5 ${stat.iconColor}`}
-                  strokeWidth={2.5}
-                />
-              </div>
-
-              {/* Text */}
-              <div>
-                <p className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
-                  {stat.value}
-                </p>
-                <p className="text-xs font-medium tracking-widest uppercase text-slate-500 dark:text-slate-400 mt-0.5">
-                  {stat.label}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
         {/* ── Mission + Code Editor ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center">
           {/* Left – Mission & Core Values */}
