@@ -22,15 +22,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white/65 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-blue-700 shadow-sm backdrop-blur-md dark:border-blue-800/70 dark:bg-blue-950/50 dark:text-blue-300"
-            >
-              <span className="h-2 w-2 rounded-full bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
-              Available for opportunities
-            </motion.div>
+           
 
             <motion.h1
               className="mb-5 text-4xl font-extrabold leading-[1.02] tracking-[-0.055em] text-slate-950 dark:text-white sm:text-5xl lg:text-6xl"
@@ -52,7 +44,7 @@ export function Hero() {
                 texts={[
                   "Software Engineer",
                   "Full-stack Developer",
-                  "AI Enthusiast",
+                  "AI enabeled Application Developer  ",
                   "Competitive Programmer",
                   "Mentor",
                 ]}
@@ -69,9 +61,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              I build impactful digital products with a focus on accessibility,
-              performance, and user experience. Passionate about clean energy,
-              AI, and scalable web solutions.
+           I’m a software developer passionate about transforming ideas into reliable, scalable digital products. I build modern web and mobile applications with a focus on performance, accessibility, intuitive user experiences, and practical AI solutions.
             </motion.p>
 
             {/* CTA Buttons */}

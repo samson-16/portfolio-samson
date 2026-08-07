@@ -11,18 +11,16 @@ export function Experience() {
       achievements: [
         "Developed responsive web applications using React, Tailwind CSS, and Next.js.",
         "Built reusable UI components and scalable frontend architectures.",
-        "Integrated REST APIs and authentication systems.",
-        "Improved application performance and mobile responsiveness.",
         "Collaborated with clients from requirement gathering to deployment.",
       ],
     },
     {
       company: "Eskalate LLC",
-      role: "Software Engineering Intern",
+      role: "Software Developer Intern",
       period: "Jul 2025 – Sep 2025",
       current: false,
       achievements: [
-        "Delivered two production-ready web applications with responsive design.",
+        "Delivered production-ready web application with responsive design.",
         "Focused on API integration, secure input handling, and scalable architecture.",
         "Collaborated on reusable components and engineering workflows for maintainable front-end systems.",
       ],

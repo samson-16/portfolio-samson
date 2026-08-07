@@ -2743,10 +2743,7 @@ html {
 }
 
 .section-title-accent {
-  color: transparent;
-  background: linear-gradient(100deg, rgb(37 99 235), rgb(8 145 178));
-  background-clip: text;
-  -webkit-background-clip: text;
+  color: rgb(37 99 235);
 }
 
 .section-copy {
@@ -2809,7 +2806,7 @@ html {
 }
 
 .dark .section-title-accent {
-  background-image: linear-gradient(100deg, rgb(96 165 250), rgb(34 211 238));
+  color: rgb(96 165 250);
 }
 
 .dark .section-copy {

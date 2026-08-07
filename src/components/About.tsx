@@ -3,6 +3,11 @@ import {
   CheckCircle2,
   Target,
   Zap,
+  Code2,
+  Smartphone,
+  Brain,
+  Server,
+  Palette,
 } from "lucide-react";
 
 export function About() {
@@ -24,6 +29,39 @@ export function About() {
       title: "Constant Innovation",
       description:
         "Always exploring emerging technologies to stay at the digital frontier.",
+    },
+  ];
+
+  const services = [
+    {
+      icon: Code2,
+      title: "Full-Stack Web Development",
+      description:
+        "Building responsive, scalable web applications with React, Next.js, Node.js, and modern databases.",
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile App Development",
+      description:
+        "Cross-platform mobile apps using React Native with native performance and smooth UX.",
+    },
+    {
+      icon: Brain,
+      title: "AI/ML Integration",
+      description:
+        "Integrating intelligent features using OpenAI APIs, ML models, and data-driven solutions.",
+    },
+    {
+      icon: Server,
+      title: "API Development",
+      description:
+        "Designing and building secure REST APIs with authentication, error handling, and clean architecture.",
+    },
+    {
+      icon: Palette,
+      title: "UI/UX Design",
+      description:
+        "Crafting modern, responsive interfaces with clean design systems and smooth animations.",
     },
   ];
 
@@ -173,12 +211,7 @@ My work combines strong problem-solving, clean code, and product thinking to bui
                   </span>
                 </p>
 
-                {/* // Continuous learning loop */}
-                <p className="pl-10">
-                  <span className="text-slate-400 dark:text-slate-500">
-                    {"// Continuous learning loop"}
-                  </span>
-                </p>
+            
 
                 {/* while (problemsExist) { */}
                 <p className="pl-10">
@@ -248,6 +281,43 @@ My work combines strong problem-solving, clean code, and product thinking to bui
               </div>
             </div>
           </motion.div>
+        </div>
+
+        {/* ── Services Section ── */}
+        <div className="mt-24">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="section-kicker">Services</div>
+            <h2 className="section-title">
+              What I <span className="section-title-accent">Offer</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                className="tech-surface group rounded-2xl p-6 hover:shadow-xl hover:shadow-blue-500/10 hover:scale-[1.02] transition-all duration-300"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/40 shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
