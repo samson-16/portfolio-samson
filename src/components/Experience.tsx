@@ -14,6 +14,19 @@ export function Experience() {
         "Collaborated with clients from requirement gathering to deployment.",
       ],
     },
+     {
+      company: "Startup Agile",
+      role: " Full-Stack Developer",
+      period: "Jan 2026 — Jun 2026",
+      current: false,
+      achievements: [
+        "Developed and maintained full-stack web applications across frontend and backend services",
+        "Implemented responsive designs and optimized user experience across devices.",
+        "Collaborated with cross-functional teams to deliver high-quality software solutions.",
+        "Built responsive user interfaces and integrated REST APIs.",
+        "Designed and implemented backend functionality, database operations, and application logic.",
+      ],
+    },
     {
       company: "Eskalate LLC",
       role: "Software Developer Intern",
@@ -39,7 +52,7 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" className="tech-grid-section border-y border-slate-200 bg-slate-50 py-24 dark:border-slate-800 dark:bg-slate-900">
+    <section id="experience" className="tech-grid-section border-y border-slate-200 bg-background py-24 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Heading ── */}
         <motion.div

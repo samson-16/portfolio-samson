@@ -16,6 +16,24 @@ export function Projects() {
       github: "https://github.com/samson-16/Lucy-sourcing",
       image: "/lucy-sourcing.png",
     },
+     {
+      title: "WikiTides",
+      description:
+        "WikiTides is an independent reference database dedicated to peptide research. It serves as a comprehensive hub for information on various peptide compounds and their applications.",
+      tech: ["React", "Vite", "TypeScript", "Node.js", "Express", "PostgreSQL"],
+      liveDemo: "https://www.wikitides.com/",
+      github: "",
+      image: "/wikidies.png",
+    },
+    {
+      title: "Siempre21",
+      description:
+        "Siempre21 is a supplier of clinical-grade peptide solutions intended strictly for scientific research. Specialized e-commerce storefront that allows medical researchers, clinical scientists, and laboratory directors to browse, verify, and purchase clinical-grade peptide solutions at wholesale prices.",
+      tech: ["React", "Vite", "TypeScript", "Node.js", "Express", "PostgreSQL"],
+      liveDemo: "https://siempre21.com/",
+      github: "",
+      image: "/simpre.png",
+    },
     {
       title: "BookBuddy AI",
       description:
@@ -197,7 +215,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="tech-grid-section border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900"
+      className="tech-grid-section border-y border-slate-200 bg-background py-24 dark:border-slate-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header (always visible) */}

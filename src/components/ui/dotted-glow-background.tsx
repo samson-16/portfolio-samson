@@ -53,7 +53,7 @@ export function DottedGlowBackground({
         />
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/60 dark:via-slate-950/40 dark:to-slate-950/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background/60 dark:via-background/40 dark:to-background/80" />
       </div>
 
       {/* Content layer */}

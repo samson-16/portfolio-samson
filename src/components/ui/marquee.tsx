@@ -28,8 +28,8 @@ export function Marquee({
       {/* Fade effects */}
       {fade && (
         <>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/12 bg-gradient-to-r from-slate-50 to-transparent dark:from-slate-900 z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/12 bg-gradient-to-l from-slate-50 to-transparent dark:from-slate-900 z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/12 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/12 bg-gradient-to-l from-background to-transparent z-10" />
         </>
       )}
 

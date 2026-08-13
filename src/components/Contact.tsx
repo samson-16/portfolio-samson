@@ -102,7 +102,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="tech-grid-section relative overflow-hidden border-y border-slate-200 bg-slate-50 py-24 dark:border-slate-800 dark:bg-slate-900"
+      className="tech-grid-section relative overflow-hidden border-y border-slate-200 bg-background py-24 dark:border-slate-800"
     >
       <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-500/5" />
       <div className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-500/5" />

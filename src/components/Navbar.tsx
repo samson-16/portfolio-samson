@@ -106,7 +106,7 @@ export function Navbar() {
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-md"
+            ? "bg-background/95 backdrop-blur-md shadow-md"
             : "bg-transparent"
         }`}
         initial={{ y: -100 }}
@@ -254,7 +254,7 @@ export function Navbar() {
 
             {/* Menu Panel */}
             <motion.div
-              className="fixed top-16 left-0 right-0 bg-white dark:bg-slate-900 shadow-xl z-40 md:hidden"
+              className="fixed top-16 left-0 right-0 bg-background shadow-xl z-40 md:hidden"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}

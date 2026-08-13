@@ -17,7 +17,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white border-y border-slate-200 dark:border-slate-800 py-12">
+    <footer className="bg-background text-slate-900 dark:text-white border-y border-slate-200 dark:border-slate-800 py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Quick Links */}

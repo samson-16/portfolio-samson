@@ -15,7 +15,7 @@ export function Community() {
   return (
     <section
       id="community"
-      className="tech-grid-section border-y border-slate-200 bg-white py-24 dark:border-slate-800 dark:bg-slate-900"
+      className="tech-grid-section border-y border-slate-200 bg-background py-24 dark:border-slate-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
