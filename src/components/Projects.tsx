@@ -34,6 +34,15 @@ export function Projects() {
       github: "",
       image: "/simpre.png",
     },
+     {
+      title: "HireLens",
+      description:
+        "HireLens — AI-assisted recruitment platform that parses resumes, generates embeddings with Gemini, and ranks candidates semantically against jobs to accelerate shortlisting and hiring decisions..",
+      tech: ["React", "Vite", "TypeScript", "FastAPi", "PostgreSQL", "OpenAI API"],
+      liveDemo: "https://hire-lens-eta.vercel.app/",
+      github: "https://github.com/samson-16/HireLens",
+      image: "/hirelens.png",
+    },
     {
       title: "BookBuddy AI",
       description:

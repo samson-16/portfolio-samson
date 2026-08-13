@@ -4,7 +4,7 @@ import { TypingKeyboard } from "./ui/typing-keyboard";
 
 const INTRO_STORAGE_KEY = "samson-portfolio-welcome-seen";
 const INTRO_TEXT =
-  "Hello, I'm Samson. Full-stack developer. AI + clean energy builder. Let's build something useful.       ";
+  "Hello, I'm Samson. Full-stack developer. AI + Scalable solutions. I build useful digital experiences.       ";
 
 interface WelcomeLoaderProps {
   onComplete?: () => void;
@@ -43,7 +43,7 @@ export function WelcomeLoader({ onComplete }: WelcomeLoaderProps) {
 
     const timeout = window.setTimeout(
       completeIntro,
-      prefersReducedMotion ? 900 : 3600
+      prefersReducedMotion ? 2200 : 8000
     );
 
     return () => window.clearTimeout(timeout);
@@ -97,13 +97,17 @@ export function WelcomeLoader({ onComplete }: WelcomeLoaderProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <div className="space-y-2">
+            <div className="space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-blue-200">
                 Welcome
               </p>
               <h1 className="text-3xl font-bold text-white sm:text-5xl">
                 Samson Demessie Ayalew
               </h1>
+              <p className="mx-auto max-w-2xl text-sm text-slate-300 sm:text-base">
+                I build modern digital products with a focus on AI, performance,
+                and thoughtful user experience.
+              </p>
             </div>
 
             <div className="relative h-[280px] w-full max-w-[620px] sm:h-[430px]">

@@ -100,23 +100,23 @@ export function Hero() {
                 href="https://github.com/samson-16"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition-all duration-200"
+                className="group rounded-full bg-white p-3.5 shadow-md ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:shadow-[0_0_18px_rgba(59,130,246,0.28)] dark:bg-slate-800 dark:ring-slate-700 md:p-4.5"
               >
-                <Github className="h-5 w-5 text-slate-700 dark:text-slate-300" />
+                <Github className="h-7 w-7 text-slate-700 transition-transform duration-200 group-hover:scale-105 dark:text-slate-300 md:h-8 md:w-8" />
               </a>
               <a
                 href="https://www.linkedin.com/in/samson-demessie/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition-all duration-200"
+                className="group rounded-full bg-white p-3.5 shadow-md ring-1 ring-blue-100 transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:shadow-[0_0_18px_rgba(59,130,246,0.32)] dark:bg-slate-800 dark:ring-blue-900/60 md:p-4.5"
               >
-                <Linkedin className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <Linkedin className="h-7 w-7 text-blue-600 transition-transform duration-200 group-hover:scale-105 dark:text-blue-400 md:h-8 md:w-8" />
               </a>
               <a
                 href="mailto:samsondemessie@gmail.com"
-                className="p-2 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition-all duration-200"
+                className="group rounded-full bg-white p-3.5 shadow-md ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:shadow-[0_0_18px_rgba(34,211,238,0.28)] dark:bg-slate-800 dark:ring-slate-700 md:p-4.5"
               >
-                <Mail className="h-5 w-5 text-slate-700 dark:text-slate-300" />
+                <Mail className="h-7 w-7 text-slate-700 transition-transform duration-200 group-hover:scale-105 dark:text-slate-300 md:h-8 md:w-8" />
               </a>
             </motion.div>
           </motion.div>
