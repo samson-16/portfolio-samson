@@ -39,16 +39,17 @@ function ThemeModeIcon({ theme }: { theme: "light" | "dark" }) {
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState("home");
   const { theme, toggleTheme } = useTheme();
 
   const navItems = [
+    { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Experience", href: "#experience" },
-    { label: "Community", href: "#community" },
     { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
     { label: "Education", href: "#education" },
+    { label: "Contact", href: "#contact" },
   ];
 
   useEffect(() => {
@@ -73,6 +74,20 @@ export function Navbar() {
         ) {
           currentSection = id;
           break;
+        }
+      }
+
+      if (document.getElementById("community")) {
+        const communitySection = document.getElementById("community");
+        if (communitySection) {
+          const communityTop = communitySection.offsetTop;
+          const communityBottom = communityTop + communitySection.offsetHeight;
+          if (
+            scrollPosition >= communityTop &&
+            scrollPosition < communityBottom
+          ) {
+            currentSection = "experience";
+          }
         }
       }
 
@@ -134,7 +149,7 @@ export function Navbar() {
             </motion.a>
 
             {/* Desktop Navigation - Center */}
-            <div className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
+            <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.href}
@@ -143,7 +158,7 @@ export function Navbar() {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className={`relative pb-1 transition-colors cursor-pointer ${
+                  className={`relative pb-1 text-base font-medium transition-colors cursor-pointer ${
                     activeSection === item.href.replace("#", "")
                       ? "text-blue-600 dark:text-blue-400"
                       : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
@@ -151,7 +166,7 @@ export function Navbar() {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.06 }}
                 >
                   {item.label}
                   <span

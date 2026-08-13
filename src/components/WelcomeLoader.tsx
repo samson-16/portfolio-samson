@@ -104,10 +104,7 @@ export function WelcomeLoader({ onComplete }: WelcomeLoaderProps) {
               <h1 className="text-3xl font-bold text-white sm:text-5xl">
                 Samson Demessie Ayalew
               </h1>
-              <p className="mx-auto max-w-2xl text-sm text-slate-300 sm:text-base">
-                I build modern digital products with a focus on AI, performance,
-                and thoughtful user experience.
-              </p>
+              
             </div>
 
             <div className="relative h-[280px] w-full max-w-[620px] sm:h-[430px]">

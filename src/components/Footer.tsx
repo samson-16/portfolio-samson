@@ -8,12 +8,13 @@ export function Footer() {
   };
 
   const quickLinks = [
+    { label: "Home", id: "home" },
     { label: "About", id: "about" },
     { label: "Experience", id: "experience" },
-    { label: "Community", id: "community" },
-    { label: "Projects", id: "projects" },
     { label: "Skills", id: "skills" },
     { label: "Education", id: "education" },
+    { label: "Projects", id: "projects" },
+    { label: "Contact", id: "contact" },
   ];
 
   return (
