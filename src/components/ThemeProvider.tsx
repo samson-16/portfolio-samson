@@ -95,7 +95,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
             style={{
               background:
                 transitionTheme === "dark"
-                  ? "radial-gradient(circle at top right, rgba(0,80,157,0.42), rgba(15,23,42,0.72) 42%, rgba(2,6,23,0.92))"
+                  ? "radial-gradient(circle at top right, rgba(3,0,46,0.48), rgba(3,0,46,0.8) 42%, rgba(3,0,46,0.96))"
                   : "radial-gradient(circle at top right, rgba(255,255,255,0.96), rgba(214,233,255,0.82) 42%, rgba(255,255,255,0.78))",
             }}
             initial={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
