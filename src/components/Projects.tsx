@@ -12,7 +12,7 @@ export function Projects() {
       description:
         "Responsive industrial sourcing website for presenting product categories, sourcing services, blog content, and inquiry workflows.",
       tech: ["React", "Vite", "TypeScript", "Sanity"],
-      liveDemo: "https://lucy-sourcing.vercel.app/",
+      liveDemo: "https://www.lucysourcing.com/",
       github: "https://github.com/samson-16/Lucy-sourcing",
       image: "/lucy-sourcing.png",
     },
