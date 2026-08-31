@@ -8,7 +8,10 @@ import {
   Brain,
   Server,
   Palette,
+  MapPin,
+  Sparkles,
 } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function About() {
   const values = [
@@ -68,8 +71,8 @@ export function About() {
   return (
     <section id="about" className="tech-grid-section border-y border-slate-200 bg-background py-24 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ── Mission + Code Editor ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center">
+        {/* ── About + Photo ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-24 items-center">
           {/* Left – Mission & Core Values */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -83,13 +86,34 @@ export function About() {
             </h2>
 
             {/* Paragraph */}
-            <p className="mb-10 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg">
-             I’m a full-stack and mobile developer based in Addis Ababa, focused on building practical web, mobile, and AI-powered products.
-
-I work with React, Next.js, TypeScript, NestJS, Node.js, Prisma, PostgreSQL, Mongodb, Supabase, FastAPI, and React Native. I enjoy turning ideas into clean, usable products, from backend APIs and dashboards to mobile apps and intelligent tools.
-
-My work combines strong problem-solving, clean code, and product thinking to build systems that are reliable, scalable, and easy to maintain..
-            </p>
+            <div className="mb-10 space-y-5 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg">
+              <p>
+                Hey, I’m Samson, a software engineer focused on turning business
+                ideas and real-world problems into reliable digital products.
+              </p>
+              <p>
+                I build modern web applications, mobile apps, backend systems,
+                APIs, and AI-powered solutions that help businesses improve how
+                they operate, serve their customers, and grow. I work mainly with{" "}
+                <span className="font-semibold text-slate-900 dark:text-white">
+                  React, Next.js, TypeScript, Node.js, NestJS, PostgreSQL, and
+                  React Native
+                </span>
+                , choosing the right tools based on the needs of each project.
+              </p>
+              <p>
+                I care about more than just making software work. I focus on
+                understanding the problem behind the project, creating a clean and
+                intuitive user experience, and building systems that are reliable,
+                maintainable, and ready to grow with the business.
+              </p>
+              <p>
+                Whether you have an idea you want to bring to life, an existing
+                system that needs improvement, or a business process that could be
+                made more efficient with technology, I enjoy turning those
+                challenges into practical solutions.
+              </p>
+            </div>
 
             {/* Feature Items */}
             <div className="space-y-8">
@@ -121,164 +145,63 @@ My work combines strong problem-solving, clean code, and product thinking to bui
             </div>
           </motion.div>
 
-          {/* Right – Code Editor Card */}
+          {/* Right – About Me Portrait */}
           <motion.div
+            className="flex justify-center md:justify-end"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="tech-surface rounded-2xl overflow-hidden shadow-2xl">
-              {/* Title bar */}
+            <div className="group relative w-full max-w-sm md:max-w-none">
+              {/* Ambient glow */}
+              <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.5rem] bg-linear-to-br from-blue-500/25 via-cyan-400/15 to-transparent blur-3xl" />
+
+              {/* Offset blueprint frame */}
+              <div className="pointer-events-none absolute inset-0 translate-x-4 translate-y-4 rounded-[1.75rem] border border-blue-400/40 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2 dark:border-blue-500/35 sm:translate-x-5 sm:translate-y-5" />
+
+              {/* Dotted accent */}
               <div
-                className="
-                flex items-center gap-2 px-4 py-3
-                bg-slate-100 dark:bg-slate-800
-                border-b border-slate-200 dark:border-slate-700/60
-              "
-              >
-                <span className="w-3 h-3 rounded-full bg-red-500" />
-                <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                <span className="w-3 h-3 rounded-full bg-green-500" />
-                <span className="ml-4 text-xs font-mono text-slate-500 dark:text-slate-400 select-none tracking-wide">
-                  about_me.ts
-                </span>
+                className="pointer-events-none absolute -left-6 -top-6 -z-10 hidden h-24 w-24 rounded-full opacity-70 md:block"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(currentColor 1px, transparent 1px)",
+                  backgroundSize: "10px 10px",
+                  color: "rgb(59 130 246 / 0.45)",
+                }}
+              />
+
+              {/* Portrait frame */}
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-linear-to-br from-white/90 to-slate-50/70 p-2 shadow-[0_30px_70px_-40px_rgb(15_23_42/0.55)] backdrop-blur-sm dark:border-slate-700/70 dark:from-slate-800/70 dark:to-slate-900/60">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] md:aspect-[4/4.6]">
+                  <ImageWithFallback
+                    src="/aboutme.jpg"
+                    alt="Samson Demessie Ayalew"
+                    className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+
+                  {/* Bottom scrim */}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-slate-950/75 via-slate-950/25 to-transparent" />
+
+                  {/* Caption chip */}
+                  <div className="absolute inset-x-4 bottom-4 flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 font-mono text-[11px] font-medium tracking-wide text-white backdrop-blur-md">
+                      <MapPin className="h-3.5 w-3.5 text-cyan-300" />
+                      Addis Ababa, Ethiopia
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 font-mono text-[11px] font-medium tracking-wide text-white backdrop-blur-md">
+                      <Sparkles className="h-3.5 w-3.5 text-blue-300" />
+                      Software Engineer
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              {/* Code body */}
-              <div className="bg-slate-50 dark:bg-slate-950 px-6 py-6 font-mono text-sm leading-7 overflow-x-auto">
-                {/* const engineer = { */}
-                <p>
-                  <span className="text-blue-600 dark:text-blue-400">
-                    const
-                  </span>
-                  <span className="text-slate-800 dark:text-slate-100">
-                    {" "}
-                    engineer{" "}
-                  </span>
-                  <span className="text-slate-600 dark:text-slate-300">
-                    {"= {"}
-                  </span>
-                </p>
-
-                {/* name: "Architect", */}
-                <p className="pl-6">
-                  <span className="text-blue-700 dark:text-blue-300">name</span>
-                  <span className="text-slate-600 dark:text-slate-300">
-                    {": "}
-                  </span>
-                  <span className="text-slate-500 dark:text-slate-400">"</span>
-                  <span className="text-blue-600 dark:text-blue-400">
-                    Samson Demessie
-                  </span>
-                  <span className="text-slate-500 dark:text-slate-400">"</span>
-                  <span className="text-slate-600 dark:text-slate-300">,</span>
-                </p>
-
-                {/* focus: ["Scalability", "Security", "UX"], */}
-                <p className="pl-6">
-                  <span className="text-blue-700 dark:text-blue-300">
-                    focus
-                  </span>
-                  <span className="text-slate-600 dark:text-slate-300">
-                    {": ["}
-                  </span>
-                  <span className="text-slate-500 dark:text-slate-400">"</span>
-                  <span className="text-blue-600 dark:text-blue-400">
-                    Full-Stack Development
-                  </span>
-                  <span className="text-slate-500 dark:text-slate-400">"</span>
-                  <span className="text-slate-600 dark:text-slate-300">, </span>
-                  <span className="text-slate-500 dark:text-slate-400">"</span>
-                  <span className="text-blue-600 dark:text-blue-400">
-                    AI/ML Integration
-                  </span>
-                  <span className="text-slate-500 dark:text-slate-400">"</span>
-                  <span className="text-slate-600 dark:text-slate-300">, </span>
-                  <span className="text-slate-500 dark:text-slate-400">"</span>
-                  <span className="text-blue-600 dark:text-blue-400">Mobile Apps</span>
-                  <span className="text-slate-500 dark:text-slate-400">"</span>
-                  <span className="text-slate-600 dark:text-slate-300">],</span>
-                </p>
-
-                {/* mindset: () => { */}
-                <p className="pl-6">
-                  <span className="text-blue-700 dark:text-blue-300">
-                    mindset
-                  </span>
-                  <span className="text-slate-600 dark:text-slate-300">
-                    {": () => {"}
-                  </span>
-                </p>
-
-            
-
-                {/* while (problemsExist) { */}
-                <p className="pl-10">
-                  <span className="text-blue-600 dark:text-blue-400">
-                    while{" "}
-                  </span>
-                  <span className="text-slate-600 dark:text-slate-300">(</span>
-                  <span className="text-slate-700 dark:text-slate-200">
-                    problemsExist
-                  </span>
-                  <span className="text-slate-600 dark:text-slate-300">
-                    {")"} {"{"}
-                  </span>
-                </p>
-
-                {/* analyze(); */}
-                <p className="pl-16">
-                  <span className="text-blue-700 dark:text-blue-300">
-                    analyze
-                  </span>
-                  <span className="text-slate-600 dark:text-slate-300">
-                    ();
-                  </span>
-                </p>
-
-                {/* solve(); */}
-                <p className="pl-16">
-                  <span className="text-blue-700 dark:text-blue-300">
-                    solve
-                  </span>
-                  <span className="text-slate-600 dark:text-slate-300">
-                    ();
-                  </span>
-                </p>
-
-                {/* innovate(); */}
-                <p className="pl-16">
-                  <span className="text-blue-700 dark:text-blue-300">
-                    innovate
-                  </span>
-                  <span className="text-slate-600 dark:text-slate-300">
-                    ();
-                  </span>
-                </p>
-
-                {/* closing } while */}
-                <p className="pl-10">
-                  <span className="text-slate-600 dark:text-slate-300">
-                    {"}"}
-                  </span>
-                </p>
-
-                {/* closing } mindset */}
-                <p className="pl-6">
-                  <span className="text-slate-600 dark:text-slate-300">
-                    {"}"}
-                  </span>
-                </p>
-
-                {/* closing }; */}
-                <p>
-                  <span className="text-slate-600 dark:text-slate-300">
-                    {"}"}
-                  </span>
-                  <span className="text-slate-600 dark:text-slate-300">;</span>
-                </p>
-              </div>
+              {/* Corner brackets */}
+              <span className="pointer-events-none absolute -left-2 -top-2 h-7 w-7 rounded-tl-lg border-l-2 border-t-2 border-blue-500/70 dark:border-blue-400/70" />
+              <span className="pointer-events-none absolute -right-2 -top-2 h-7 w-7 rounded-tr-lg border-r-2 border-t-2 border-cyan-400/70" />
+              <span className="pointer-events-none absolute -bottom-2 -left-2 h-7 w-7 rounded-bl-lg border-b-2 border-l-2 border-cyan-400/70" />
+              <span className="pointer-events-none absolute -bottom-2 -right-2 h-7 w-7 rounded-br-lg border-b-2 border-r-2 border-blue-500/70 dark:border-blue-400/70" />
             </div>
           </motion.div>
         </div>
