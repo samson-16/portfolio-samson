@@ -181,4 +181,9 @@ To adapt this portfolio:
 - GitHub: [samson-16](https://github.com/samson-16)
 - LinkedIn: [samson-demessie](https://www.linkedin.com/in/samson-demessie/)
 - Email: [samsondemessie@gmail.com](mailto:samsondemessie@gmail.com)
+- Telegram: [@Sami_Ed](https://t.me/Sami_Ed)
+- Phone: [+251 975 660 501](tel:+251975660501)
+
+[![Telegram](https://img.shields.io/badge/Telegram-26A5E4.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Sami_Ed)
+[![Phone](https://img.shields.io/badge/Phone-%2B251975660501.svg?style=for-the-badge&logo=phone&logoColor=white)](tel:+251975660501)
 

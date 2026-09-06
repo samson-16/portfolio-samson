@@ -157,11 +157,14 @@ export function Projects() {
             {project.title}
           </h3>
 
-          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+          <p
+            className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 line-clamp-3 min-h-[4.25rem]"
+            title={project.description}
+          >
             {project.description}
           </p>
 
-          <div className="flex flex-wrap gap-1.5 mb-5">
+          <div className="flex flex-wrap content-start gap-1.5 mb-5 min-h-[3.25rem]">
             {project.tech.slice(0, 4).map((tag) => (
               <span
                 key={tag}
@@ -177,6 +180,20 @@ export function Projects() {
                 {tag}
               </span>
             ))}
+            {project.tech.length > 4 && (
+              <span
+                className="
+                  inline-flex items-center
+                  px-2.5 py-1 rounded-md text-[10px] font-semibold
+                  tracking-wide uppercase
+                  bg-slate-100 dark:bg-slate-800
+                  text-slate-500 dark:text-slate-400
+                "
+                title={project.tech.slice(4).join(", ")}
+              >
+                +{project.tech.length - 4}
+              </span>
+            )}
           </div>
 
           <div className="h-px bg-slate-200 dark:bg-slate-700/60 mb-4 mt-auto" />

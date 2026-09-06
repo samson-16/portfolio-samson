@@ -2,7 +2,14 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 
 export function Experience() {
-  const experiences = [
+  const experiences: {
+    company: string;
+    role: string;
+    period: string;
+    type?: string;
+    current: boolean;
+    achievements: string[];
+  }[] = [
     {
       company: "Upwork",
       role: "Freelance Full-Stack Developer",
@@ -20,11 +27,24 @@ export function Experience() {
       period: "Jan 2026 — Jun 2026",
       current: false,
       achievements: [
-        "Developed and maintained full-stack web applications across frontend and backend services",
-        "Implemented responsive designs and optimized user experience across devices.",
-        "Collaborated with cross-functional teams to deliver high-quality software solutions.",
-        "Built responsive user interfaces and integrated REST APIs.",
-        "Designed and implemented backend functionality, database operations, and application logic.",
+
+
+       " Built and maintained full-stack web applications using Next.js, React, Node.js, FastApi, Django and PostgreSQL scaling to support 10,000+ monthly active users.",
+        "Reduced average API response time by 30% through query optimization and backend improvements.",
+        "Collaborated with a cross-functional team of 6 engineers and designers to deliver 15+ major feature releases, accelerating time-to-market by 20%.",
+       
+      ],
+    },
+    {
+      company: "GNK Technology Solutions PLC",
+      role: "Full-Stack Developer",
+      period: "Apr 2025 – Nov 2025",
+      type: "Remote | Contractual",
+      current: false,
+      achievements: [
+        "Developed and maintained a Transport Management System to help manage transportation operations and daily workflows.",
+        "Delivered end-to-end frontend and backend features across the React and Node.js stack, resolving 10+ critical workflow bottlenecks and increasing operational efficiency by 30%."
+
       ],
     },
     {
@@ -108,9 +128,16 @@ export function Experience() {
                     </h3>
 
                     {/* Right: period */}
-                    <span className="text-xs font-medium tracking-widest uppercase text-slate-500 dark:text-slate-400 shrink-0">
-                      {exp.period}
-                    </span>
+                    <div className="flex flex-col items-end shrink-0">
+                      <span className="text-xs font-medium tracking-widest uppercase text-slate-500 dark:text-slate-400">
+                        {exp.period}
+                      </span>
+                      {exp.type && (
+                        <span className="mt-1 text-[0.65rem] font-medium tracking-wider uppercase text-slate-400 dark:text-slate-500">
+                          {exp.type}
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* Role + badge row */}

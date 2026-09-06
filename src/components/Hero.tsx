@@ -13,11 +13,11 @@ export function Hero() {
     <section id="home" className="tech-grid-section relative min-h-screen flex items-center justify-center overflow-hidden border-y border-slate-200 dark:border-slate-800">
       <div className="pointer-events-none absolute left-[12%] top-[18%] h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
       <div className="pointer-events-none absolute right-[8%] top-[28%] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-24 relative z-10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
           {/* Left: Text Content */}
           <motion.div
-            className="flex-1 text-center md:text-left"
+            className="order-2 flex-1 text-center md:order-1 md:text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -44,7 +44,7 @@ export function Hero() {
                 texts={[
                   "Software Engineer",
                   "Full-stack Developer",
-                  "AI enabeled Application Developer  ",
+                  "AI-enabled Application Developer  ",
                   "Competitive Programmer",
                   "Mentor",
                 ]}
@@ -56,7 +56,7 @@ export function Hero() {
             </motion.h2>
 
             <motion.p
-              className="mb-9 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg"
+              className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg md:mx-0 md:mb-9 md:max-w-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -66,7 +66,7 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-wrap gap-4 justify-center md:justify-start mb-8"
+              className="flex flex-wrap gap-4 justify-center md:justify-start mb-6 md:mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
@@ -123,7 +123,7 @@ export function Hero() {
 
           {/* Right: Profile Image */}
           <motion.div
-            className="shrink-0"
+            className="order-1 shrink-0 md:order-2"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -142,7 +142,7 @@ export function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 transform md:block"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{

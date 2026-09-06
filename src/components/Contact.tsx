@@ -1,9 +1,12 @@
 import { motion } from "motion/react";
 import {
+  Check,
   CheckCircle2,
+  Copy,
   Github,
   Linkedin,
   Mail,
+  Phone,
   Send,
 } from "lucide-react";
 import { useState } from "react";
@@ -16,6 +19,7 @@ const labelClassName =
   "text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-300";
 
 export function Contact() {
+  const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -97,6 +101,18 @@ export function Contact() {
       value: "/samson-16",
       href: "https://github.com/samson-16",
     },
+    {
+      icon: Send,
+      label: "Telegram",
+      value: "@Sami_Ed",
+      href: "https://t.me/Sami_Ed",
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+251 975 660 501",
+      href: "tel:+251975660501",
+    },
   ];
 
   return (
@@ -139,24 +155,25 @@ export function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="contact-social-card"
+              className="tech-surface mt-10 w-full rounded-2xl p-5 sm:p-6"
             >
-              <p className="px-4 pt-4 text-center text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
                 Find me online
               </p>
-              <ul>
+              <ul className="mt-4 flex flex-col gap-2">
                 {contactLinks.map(({ icon: Icon, label, value, href }, index) => (
                   <motion.li
                     key={label}
-                    className="contact-iso-pro"
-                    initial={{ opacity: 0, y: 16 }}
+                    className="flex items-center gap-3 rounded-xl px-2 py-2 transition-colors duration-200 hover:bg-slate-100/70 dark:hover:bg-slate-800/50"
+                    initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.1 * index + 0.15, duration: 0.45 }}
+                    transition={{ delay: 0.08 * index + 0.15, duration: 0.4 }}
                   >
-                    <span aria-hidden="true" />
-                    <span aria-hidden="true" />
-                    <span aria-hidden="true" />
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400">
+                      <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
+                    </span>
+
                     <a
                       href={href}
                       target={href.startsWith("http") ? "_blank" : undefined}
@@ -165,11 +182,35 @@ export function Contact() {
                           ? "noopener noreferrer"
                           : undefined
                       }
-                      aria-label={`${label}: ${value}`}
+                      className="min-w-0 flex-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40"
                     >
-                      <Icon className="contact-social-icon" strokeWidth={2} />
-                      <span className="contact-social-text">{label}</span>
+                      <span className="block text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                        {label}
+                      </span>
+                      <span className="block truncate text-sm font-medium text-slate-800 group-hover:text-blue-600 dark:text-slate-200">
+                        {value}
+                      </span>
                     </a>
+
+                    {label === "Email" && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          navigator.clipboard.writeText(value);
+                          setCopied(true);
+                          toast.success("Email copied to clipboard");
+                          setTimeout(() => setCopied(false), 2000);
+                        }}
+                        aria-label="Copy email address"
+                        className="shrink-0 rounded-lg p-2 text-slate-400 transition-colors duration-200 hover:bg-slate-200/70 hover:text-slate-700 focus-visible:ring-2 focus-visible:ring-blue-500/40 dark:hover:bg-slate-700/60 dark:hover:text-slate-200"
+                      >
+                        {copied ? (
+                          <Check className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                        ) : (
+                          <Copy className="h-4 w-4" />
+                        )}
+                      </button>
+                    )}
                   </motion.li>
                 ))}
               </ul>
@@ -272,165 +313,6 @@ export function Contact() {
         </div>
       </div>
 
-      <style>{`
-        /* From Uiverse.io by MijailVillegas — scoped to contact social links */
-        .contact-social-card {
-          width: fit-content;
-          min-width: 8.5rem;
-          border: 1px solid rgb(226 232 240 / 0.9);
-          border-radius: 15px;
-          display: flex;
-          flex-direction: column;
-          align-content: center;
-          justify-content: center;
-          gap: 0.25rem;
-          background: rgb(255 255 255 / 0.55);
-          backdrop-filter: blur(15px);
-          box-shadow: inset 0 0 20px rgb(255 255 255 / 0.2),
-            inset 0 0 5px rgb(255 255 255 / 0.28),
-            0 5px 5px rgb(0 0 0 / 0.12);
-          transition: 0.5s;
-        }
-
-        .contact-social-card:hover {
-          background: rgb(173 173 173 / 0.05);
-        }
-
-        .contact-social-card ul {
-          padding: 1rem 1.5rem 1.5rem;
-          display: flex;
-          list-style: none;
-          gap: 1.25rem;
-          align-items: center;
-          justify-content: center;
-          align-content: center;
-          flex-wrap: wrap;
-          flex-direction: column;
-        }
-
-        .contact-iso-pro {
-          position: relative;
-          cursor: pointer;
-          transition: 0.5s;
-        }
-
-        .contact-iso-pro a {
-          display: block;
-          position: relative;
-        }
-
-        .contact-social-icon {
-          position: relative;
-          z-index: 4;
-          box-sizing: border-box;
-          padding: 1rem;
-          height: 60px;
-          width: 60px;
-          border-radius: 100%;
-          color: rgb(37 99 235);
-          fill: none;
-          background: rgb(255 255 255 / 0.22);
-          box-shadow: inset 0 0 20px rgb(255 255 255 / 0.3),
-            inset 0 0 5px rgb(255 255 255 / 0.5),
-            0 5px 5px rgb(0 0 0 / 0.16);
-          transition: all 0.3s;
-        }
-
-        .contact-social-text {
-          opacity: 0;
-          position: absolute;
-          left: 100%;
-          top: 50%;
-          z-index: 10;
-          width: max-content;
-          border-radius: 5px;
-          padding: 5px 9px;
-          color: rgb(37 99 235);
-          background-color: rgb(255 255 255 / 0.82);
-          box-shadow: -5px 0 1px rgb(153 153 153 / 0.2),
-            -10px 0 1px rgb(153 153 153 / 0.2),
-            inset 0 0 20px rgb(255 255 255 / 0.3),
-            inset 0 0 5px rgb(255 255 255 / 0.5),
-            0 5px 5px rgb(0 0 0 / 0.08);
-          pointer-events: none;
-          transition: all 0.3s;
-        }
-
-        .contact-iso-pro > span {
-          opacity: 0;
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          height: 60px;
-          width: 60px;
-          border: 1px solid rgb(37 99 235);
-          border-radius: 50%;
-          color: rgb(37 99 235);
-          box-shadow: inset 0 0 20px rgb(255 255 255 / 0.3),
-            inset 0 0 5px rgb(255 255 255 / 0.5),
-            0 5px 5px rgb(0 0 0 / 0.16);
-          transition: all 0.3s;
-        }
-
-        .contact-iso-pro:hover a > .contact-social-icon,
-        .contact-iso-pro:focus-within a > .contact-social-icon {
-          transform: translate(15px, -15px);
-        }
-
-        .contact-iso-pro:hover .contact-social-text,
-        .contact-iso-pro:focus-within .contact-social-text {
-          opacity: 1;
-          transform: translate(25px, -50%) skew(-5deg);
-        }
-
-        .contact-iso-pro:hover > span,
-        .contact-iso-pro:focus-within > span {
-          opacity: 1;
-        }
-
-        .contact-iso-pro:hover > span:nth-child(1),
-        .contact-iso-pro:focus-within > span:nth-child(1) {
-          opacity: 0.2;
-        }
-
-        .contact-iso-pro:hover > span:nth-child(2),
-        .contact-iso-pro:focus-within > span:nth-child(2) {
-          opacity: 0.4;
-          transform: translate(5px, -5px);
-        }
-
-        .contact-iso-pro:hover > span:nth-child(3),
-        .contact-iso-pro:focus-within > span:nth-child(3) {
-          opacity: 0.6;
-          transform: translate(10px, -10px);
-        }
-
-        .dark .contact-social-card {
-          border-color: rgb(51 65 85 / 0.8);
-          background: rgb(30 41 59 / 0.52);
-        }
-
-        .dark .contact-social-text {
-          color: rgb(96 165 250);
-          background-color: rgb(15 23 42 / 0.9);
-        }
-
-        .dark .contact-social-icon,
-        .dark .contact-iso-pro > span {
-          color: rgb(96 165 250);
-          border-color: rgb(96 165 250);
-        }
-
-        @media (max-width: 767px) {
-          .contact-social-card {
-            width: 100%;
-          }
-
-          .contact-social-card ul {
-            flex-direction: row;
-          }
-        }
-      `}</style>
     </section>
   );
 }
