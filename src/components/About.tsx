@@ -69,7 +69,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="tech-grid-section border-y border-slate-200 bg-background py-24 dark:border-slate-800">
+    <section id="about" className="section-band tech-grid-section border-y border-slate-200 py-24 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── About + Photo ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-24 items-center">
@@ -95,7 +95,7 @@ export function About() {
                 I build modern web applications, mobile apps, backend systems,
                 APIs, and AI-powered solutions that help businesses improve how
                 they operate, serve their customers, and grow. I work mainly with{" "}
-                <span className="font-semibold text-slate-900 dark:text-white">
+                <span className="font-semibold text-slate-900 dark:text-slate-100">
                   React, Next.js, TypeScript, Node.js, NestJS, PostgreSQL, and
                   React Native
                 </span>
@@ -133,7 +133,7 @@ export function About() {
 
                   {/* Content */}
                   <div>
-                    <p className="font-semibold text-slate-900 dark:text-white">
+                    <p className="font-semibold text-slate-900 dark:text-slate-100">
                       {value.title}
                     </p>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
@@ -167,12 +167,12 @@ export function About() {
                   backgroundImage:
                     "radial-gradient(currentColor 1px, transparent 1px)",
                   backgroundSize: "10px 10px",
-                  color: "rgb(59 130 246 / 0.45)",
+                  color: "var(--accent-rain)",
                 }}
               />
 
               {/* Portrait frame */}
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-linear-to-br from-white/90 to-slate-50/70 p-2 shadow-[0_30px_70px_-40px_rgb(15_23_42/0.55)] backdrop-blur-sm dark:border-slate-700/70 dark:from-slate-800/70 dark:to-slate-900/60">
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-linear-to-br from-white/90 to-slate-50/70 p-2 shadow-[0_30px_70px_-40px_var(--frame-shadow)] backdrop-blur-sm dark:border-slate-700/70 dark:from-slate-800/70 dark:to-slate-900/60">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] md:aspect-[4/4.6]">
                   <ImageWithFallback
                     src="/aboutme.jpg"
@@ -230,7 +230,7 @@ export function About() {
                     <service.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">
                       {service.title}
                     </h3>
                     <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">

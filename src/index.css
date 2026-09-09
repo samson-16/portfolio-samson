@@ -2217,82 +2217,260 @@
   }
 }
 
+/* ============================================================================
+   PORTFOLIO COLOR SYSTEM
+   ----------------------------------------------------------------------------
+   Two grounds, one accent family.
+
+   LIGHT  ground #FFFFFF  — pure paper white. Neutrals are cooled a few degrees
+                            toward blue so they sit in the same family as the
+                            accent instead of reading as dirty grey on white.
+   DARK   ground #0D0907  — warm near-black (hue ~20deg, R>G>B). Every dark
+                            neutral keeps that same warm drift so surfaces stack
+                            as one material, not as grey patches on brown.
+
+   ACCENT blue            — cool, so it is near-complementary to the warm dark
+                            ground (maximum pop) and analogous to the cooled
+                            light neutrals (calm harmony). Retuned per mode:
+                            deep and saturated on white, lifted and softened on
+                            the warm black so it does not vibrate.
+
+   SUPPORT cyan           — 30deg from the accent. Edges and glows only.
+   EMBER  (dark only)     — pulled from the ground hue, replaces the old purple
+                            orb so the dark palette stays a two-hue scheme.
+
+   The neutral ramp is published through Tailwind's slate-* scale and the accent
+   through blue-* / cyan-* (see the @theme inline block below), so every existing
+   utility class in the components retunes with the theme. Both ramps run
+   light -> dark at the same index, so `bg-slate-100 dark:bg-slate-800` pairs
+   keep working and land on the right end of each mode's ramp.
+   ============================================================================ */
+
 :root {
   --font-size: 16px;
-  --background: #f9f4f2;
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: #fff;
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
+
+  /* Neutral ramp — cool, anchored on #FFFFFF */
+  --n-50:  #f7f9fc;
+  --n-100: #eef2f7;
+  --n-200: #dee5ef;
+  --n-300: #c7d1e0;
+  --n-400: #94a2b8;
+  --n-500: #5c6b83;
+  --n-600: #4a5870;
+  --n-700: #35425a;
+  --n-800: #222e43;
+  --n-900: #131e30;
+  --n-950: #0a1322;
+
+  /* Accent ramp — blue, deepened for contrast against pure white */
+  --a-50:  #eff5ff;
+  --a-100: #dce9fe;
+  --a-200: #bfd7fe;
+  --a-300: #93bbfd;
+  --a-400: #609afa;
+  --a-500: #3b7df6;
+  --a-600: #2563eb;
+  --a-700: #1d4fd1;
+  --a-800: #1e40af;
+  --a-900: #1e3a8a;
+  --a-950: #172554;
+
+  /* Support ramp — cyan */
+  --c-300: #67e8f9;
+  --c-400: #22d3ee;
+  --c-500: #06b6d4;
+
+  /* -------- Semantic surfaces -------- */
+  --background: #ffffff;   /* page ground */
+  --surface:    #f7f9fc;   /* alternating section band, visible on pure white */
+  --surface-2:  #eef2f7;   /* wells inside cards: chips, icon plates, inputs */
+  --card:       #ffffff;
+  --elevated:   #ffffff;
+
+  /* -------- Semantic text -------- */
+  --text-strong: var(--n-900);   /* headings         — 15.4:1 on white */
+  --text-body:   var(--n-600);   /* paragraph copy   —  7.4:1 on white */
+  --text-muted:  var(--n-500);   /* meta, timestamps —  5.2:1 on white */
+  --text-faint:  var(--n-400);   /* decorative icons only */
+
+  /* -------- Semantic accent -------- */
+  --accent:        var(--a-600);
+  --accent-strong: var(--a-700);
+  --accent-soft:   var(--a-50);
+  --accent-2:      var(--c-500);
+
+  /* -------- Lines, plates, atmosphere -------- */
+  --hairline:   var(--n-200);              /* section separators, card edges */
+  --hairline-2: var(--n-300);              /* stronger dividers */
+  --grid-line:  rgb(37 99 235 / 0.055);    /* tech-grid-section lattice */
+  --dot-color:  rgb(100 116 139 / 0.30);   /* dotted page backdrop */
+  --orb-1:      rgb(59 130 246 / 0.30);    /* accent orb */
+  --orb-2:      rgb(129 140 248 / 0.22);   /* indigo bridge orb */
+  --orb-3:      rgb(34 211 238 / 0.22);    /* cyan orb */
+
+  --card-bg:     linear-gradient(145deg, rgb(255 255 255 / 0.94), rgb(247 249 252 / 0.80));
+  --card-border: rgb(214 223 236 / 1);
+  /* Two-part lift: a tight contact shadow so the edge separates from a pure
+     #FFFFFF ground, plus the wide soft one for depth. */
+  --card-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9),
+                 0 1px 2px rgb(10 19 34 / 0.05),
+                 0 18px 40px -28px rgb(10 19 34 / 0.38);
+
+  --accent-glow:   rgb(37 99 235 / 0.28);   /* icon-button hover halo */
+  --accent-2-glow: rgb(6 182 212 / 0.28);
+  --accent-rain:   rgb(37 99 235 / 0.45);   /* code-rain glyphs */
+  --frame-shadow:  rgb(10 19 34 / 0.55);    /* portrait frame drop */
+  --cursor:        #2563eb;                 /* custom cursor */
+
+  --scrim: rgb(10 19 34 / 0.45);
+
+  /* -------- shadcn/ui contract, mapped onto the ramps above -------- */
+  --foreground: var(--n-900);
+  --card-foreground: var(--n-900);
+  --popover: #ffffff;
+  --popover-foreground: var(--n-900);
+  --primary: var(--a-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--n-100);
+  --secondary-foreground: var(--n-800);
+  --muted: var(--n-100);
+  --muted-foreground: var(--n-500);
+  --accent-foreground: var(--n-900);
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: var(--n-200);
+  --input: var(--n-200);
+  --input-background: var(--n-50);
+  --switch-background: var(--n-300);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --ring: var(--a-500);
+  --chart-1: var(--a-600);
+  --chart-2: var(--c-500);
+  --chart-3: #6366f1;
+  --chart-4: #0ea5e9;
+  --chart-5: var(--n-500);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--n-900);
+  --sidebar-primary: var(--a-600);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--n-100);
+  --sidebar-accent-foreground: var(--n-800);
+  --sidebar-border: var(--n-200);
+  --sidebar-ring: var(--a-500);
 }
 
 .dark {
-  --background: #03002e;
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(.637 .237 25.331);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  /* Neutral ramp — warm, anchored on #0D0907. Same light -> dark direction as
+     the light ramp; every step keeps the ground's R>G>B drift. */
+  --n-50:  #fcfaf8;
+  --n-100: #f3eeea;
+  --n-200: #e2dad3;
+  --n-300: #c6bbb2;
+  --n-400: #9e9188;
+  --n-500: #8b7f76;
+  --n-600: #574e48;
+  --n-700: #3b342e;
+  --n-800: #292220;
+  --n-900: #191412;
+  --n-950: #0d0907;
+
+  /* Accent ramp — lifted and slightly desaturated so cool blue sits on warm
+     black without vibrating. The deep tints (800-950) are warmed toward the
+     ground so bg-blue-950/40 plates read as tinted wells, not cold patches. */
+  --a-50:  #eef4ff;
+  --a-100: #d9e7ff;
+  --a-200: #b9d3ff;
+  --a-300: #8fb8ff;
+  --a-400: #6ba6ff;
+  --a-500: #3572d6;
+  --a-600: #2b5cae;
+  --a-700: #22488a;
+  --a-800: #1b3768;
+  --a-900: #1c3050;
+  --a-950: #141f33;
+
+  /* Support ramp — cyan, warmed a step for the same reason */
+  --c-300: #8fe6f2;
+  --c-400: #4cd4e6;
+  --c-500: #2bb6cc;
+
+  /* -------- Semantic surfaces -------- */
+  --background: #0d0907;
+  --surface:    #191412;
+  --surface-2:  #211b18;
+  --card:       #191412;
+  --elevated:   #292220;
+
+  /* -------- Semantic text -------- */
+  --text-strong: var(--n-100);   /* headings — 16.1:1 on #0D0907 */
+  --text-body:   var(--n-300);   /* copy     —  9.6:1 */
+  --text-muted:  var(--n-400);   /* meta     —  5.8:1 */
+  --text-faint:  var(--n-500);
+
+  /* -------- Semantic accent -------- */
+  --accent:        var(--a-400);
+  --accent-strong: var(--a-300);
+  --accent-soft:   rgb(53 114 214 / 0.14);
+  --accent-2:      var(--c-400);
+
+  /* -------- Lines, plates, atmosphere -------- */
+  --hairline:   var(--n-800);
+  --hairline-2: var(--n-700);
+  --grid-line:  rgb(107 166 255 / 0.05);
+  --dot-color:  rgb(226 218 211 / 0.10);
+  --orb-1:      rgb(53 114 214 / 0.18);
+  --orb-2:      rgb(196 106 62 / 0.10);   /* ember, pulled from the ground hue */
+  --orb-3:      rgb(43 182 204 / 0.12);
+
+  --card-bg:     linear-gradient(145deg, rgb(41 34 32 / 0.80), rgb(25 20 18 / 0.68));
+  --card-border: rgb(59 52 46 / 0.90);
+  --card-shadow: inset 0 1px 0 rgb(255 245 235 / 0.045),
+                 0 22px 55px -34px rgb(0 0 0 / 0.85);
+
+  --accent-glow:   rgb(107 166 255 / 0.34);
+  --accent-2-glow: rgb(76 212 230 / 0.30);
+  --accent-rain:   rgb(107 166 255 / 0.42);
+  --frame-shadow:  rgb(0 0 0 / 0.75);
+  --cursor:        #6ba6ff;
+
+  --scrim: rgb(5 3 2 / 0.62);
+
+  /* -------- shadcn/ui contract -------- */
+  --foreground: var(--n-100);
+  --card-foreground: var(--n-100);
+  --popover: var(--n-900);
+  --popover-foreground: var(--n-100);
+  --primary: var(--a-400);
+  --primary-foreground: var(--n-950);
+  --secondary: var(--n-800);
+  --secondary-foreground: var(--n-100);
+  --muted: var(--n-800);
+  --muted-foreground: var(--n-400);
+  --accent-foreground: var(--n-100);
+  --destructive: #f2637e;
+  --destructive-foreground: var(--n-950);
+  --border: var(--n-800);
+  --input: var(--n-700);
+  --input-background: var(--n-900);
+  --switch-background: var(--n-600);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --ring: var(--a-500);
+  --chart-1: var(--a-400);
+  --chart-2: var(--c-400);
+  --chart-3: #8f9dff;
+  --chart-4: #e0a06a;
+  --chart-5: var(--n-400);
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--n-100);
+  --sidebar-primary: var(--a-400);
+  --sidebar-primary-foreground: var(--n-950);
+  --sidebar-accent: var(--n-800);
+  --sidebar-accent-foreground: var(--n-100);
+  --sidebar-border: var(--n-800);
+  --sidebar-ring: var(--a-500);
 }
 
 html {
@@ -2683,6 +2861,51 @@ html {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* -- Semantic surfaces exposed as utilities: bg-surface, bg-surface-2 ------ */
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-elevated: var(--elevated);
+  --color-hairline: var(--hairline);
+  --color-hairline-2: var(--hairline-2);
+  --color-text-strong: var(--text-strong);
+  --color-text-body: var(--text-body);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+
+  /* -- Neutral ramp republished over Tailwind's slate-* -----------------------
+     Every `slate-*` class in the components now resolves through --n-*, which
+     swaps between the cool light ramp and the warm dark ramp on `.dark`.
+     This is what retunes all 11 sections from one place.                      */
+  --color-slate-50:  var(--n-50);
+  --color-slate-100: var(--n-100);
+  --color-slate-200: var(--n-200);
+  --color-slate-300: var(--n-300);
+  --color-slate-400: var(--n-400);
+  --color-slate-500: var(--n-500);
+  --color-slate-600: var(--n-600);
+  --color-slate-700: var(--n-700);
+  --color-slate-800: var(--n-800);
+  --color-slate-900: var(--n-900);
+  --color-slate-950: var(--n-950);
+
+  /* -- Accent ramp republished over blue-* ---------------------------------- */
+  --color-blue-50:  var(--a-50);
+  --color-blue-100: var(--a-100);
+  --color-blue-200: var(--a-200);
+  --color-blue-300: var(--a-300);
+  --color-blue-400: var(--a-400);
+  --color-blue-500: var(--a-500);
+  --color-blue-600: var(--a-600);
+  --color-blue-700: var(--a-700);
+  --color-blue-800: var(--a-800);
+  --color-blue-900: var(--a-900);
+  --color-blue-950: var(--a-950);
+
+  /* -- Support ramp republished over cyan-* --------------------------------- */
+  --color-cyan-300: var(--c-300);
+  --color-cyan-400: var(--c-400);
+  --color-cyan-500: var(--c-500);
 }
 
 /*---break--- */
@@ -2706,7 +2929,22 @@ html {
   }
 }
 
-/* Shared portfolio visual system */
+/* ============================================================================
+   Shared portfolio visual system
+   Everything below reads from the token layer, so there are no `.dark`
+   overrides to keep in sync — each mode swaps the tokens, not the rules.
+   ============================================================================ */
+
+/* --- Section rhythm ---------------------------------------------------------
+   On a pure #FFFFFF ground, back-to-back sections would fuse into one white
+   sheet. `.section-band` paints the alternating band (--surface) so the page
+   reads as distinct blocks in both modes. Applied to About, Community, Skills
+   and Contact; the sections between them stay on --background.
+   -------------------------------------------------------------------------- */
+.section-band {
+  background-color: var(--surface);
+}
+
 .section-heading {
   max-width: 42rem;
   margin-bottom: 3.5rem;
@@ -2717,7 +2955,7 @@ html {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.875rem;
-  color: rgb(37 99 235);
+  color: var(--accent);
   font-family: Sora, sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
@@ -2730,12 +2968,12 @@ html {
   content: "";
   width: 1.75rem;
   height: 1px;
-  background: linear-gradient(90deg, rgb(37 99 235), rgb(6 182 212));
-  box-shadow: 0 0 12px rgb(37 99 235 / 0.55);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 12px color-mix(in oklab, var(--accent) 55%, transparent);
 }
 
 .section-title {
-  color: rgb(15 23 42);
+  color: var(--text-strong);
   font-size: clamp(2.25rem, 5vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.045em;
@@ -2743,27 +2981,29 @@ html {
 }
 
 .section-title-accent {
-  color: rgb(37 99 235);
+  color: var(--accent);
 }
 
 .section-copy {
   max-width: 38rem;
   margin-top: 1rem;
-  color: rgb(71 85 105);
+  color: var(--text-body);
   font-size: 1rem;
   line-height: 1.75;
 }
 
+/* --- Card material ---------------------------------------------------------
+   One glass recipe, two materials: frosted white over the light ground, warm
+   charcoal over #0D0907. Both carry the same inner top highlight so the edge
+   catches light the same way in either mode.
+   -------------------------------------------------------------------------- */
 .tech-surface {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border: 1px solid rgb(203 213 225 / 0.78);
-  background:
-    linear-gradient(145deg, rgb(255 255 255 / 0.88), rgb(248 250 252 / 0.68));
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.9),
-    0 18px 45px -32px rgb(15 23 42 / 0.42);
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
   backdrop-filter: blur(14px);
 }
 
@@ -2775,10 +3015,17 @@ html {
   left: 12%;
   width: 44%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgb(37 99 235 / 0.85), rgb(6 182 212 / 0.6), transparent);
-  box-shadow: 0 0 18px rgb(37 99 235 / 0.35);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--accent) 85%, transparent),
+    color-mix(in oklab, var(--accent-2) 60%, transparent),
+    transparent
+  );
+  box-shadow: 0 0 18px color-mix(in oklab, var(--accent) 35%, transparent);
 }
 
+/* --- Ambient lattice -------------------------------------------------------- */
 .tech-grid-section {
   position: relative;
   overflow: hidden;
@@ -2791,63 +3038,20 @@ html {
   pointer-events: none;
   opacity: 0.24;
   background-image:
-    linear-gradient(rgb(37 99 235 / 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(37 99 235 / 0.055) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
 }
 
-.dark .section-kicker {
-  color: rgb(96 165 250);
-}
-
-.dark .section-title {
-  color: rgb(248 250 252);
-}
-
-.dark .section-title-accent {
-  color: rgb(96 165 250);
-}
-
-.dark .section-copy {
-  color: rgb(148 163 184);
-}
-
-.dark .tech-surface {
-  border-color: rgb(51 65 85 / 0.72);
-  background: linear-gradient(145deg, rgb(30 41 59 / 0.72), rgb(15 23 42 / 0.58));
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.04),
-    0 22px 55px -34px rgb(2 132 199 / 0.32);
-}
-
-/* Remove the glowing edge effect from cards in About, Education, Experience, Skills, and Community sections */
+/* Content sections drop the card's glowing top edge — the accent line is
+   reserved for Projects and Hero so it stays a signal, not decoration. */
 #about .tech-surface::before,
 #education .tech-surface::before,
 #experience .tech-surface::before,
 #skills .tech-surface::before,
 #community .tech-surface::before {
   display: none;
-}
-
-#about .tech-surface,
-#education .tech-surface,
-#experience .tech-surface,
-#skills .tech-surface,
-#community .tech-surface {
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.9),
-    0 18px 45px -32px rgb(15 23 42 / 0.42);
-}
-
-.dark #about .tech-surface,
-.dark #education .tech-surface,
-.dark #experience .tech-surface,
-.dark #skills .tech-surface,
-.dark #community .tech-surface {
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.04),
-    0 22px 55px -34px rgb(0 0 0 / 0.42);
 }
 
 @media (min-width: 768px) {

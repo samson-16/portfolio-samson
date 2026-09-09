@@ -13,7 +13,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const fieldClassName =
-  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/15 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-blue-400 dark:focus:bg-slate-950";
+  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/15 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus:border-blue-400 dark:focus:bg-surface-2";
 
 const labelClassName =
   "text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-300";
@@ -118,7 +118,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="tech-grid-section relative overflow-hidden border-y border-slate-200 bg-background py-24 dark:border-slate-800"
+      className="section-band tech-grid-section relative overflow-hidden border-y border-slate-200 py-24 dark:border-slate-800"
     >
       <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-500/5" />
       <div className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-500/5" />
@@ -225,7 +225,7 @@ export function Contact() {
             >
               <div className="tech-surface rounded-2xl p-6 md:p-8">
                 <div className="mb-6">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
                     Send me a message
                   </h3>
                   <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">

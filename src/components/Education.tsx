@@ -59,7 +59,7 @@ export function Education() {
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-2">
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 leading-snug mb-2">
                         {item.title}
                       </h3>
                       <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">

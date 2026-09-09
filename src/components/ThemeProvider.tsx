@@ -95,8 +95,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
             style={{
               background:
                 transitionTheme === "dark"
-                  ? "radial-gradient(circle at top right, rgba(3,0,46,0.48), rgba(3,0,46,0.8) 42%, rgba(3,0,46,0.96))"
-                  : "radial-gradient(circle at top right, rgba(255,255,255,0.96), rgba(214,233,255,0.82) 42%, rgba(255,255,255,0.78))",
+                  // Sweep toward the ground each mode actually lands on:
+                  // warm near-black #0D0907 going dark, paper white going light.
+                  ? "radial-gradient(circle at top right, rgba(13,9,7,0.48), rgba(13,9,7,0.82) 42%, rgba(13,9,7,0.96))"
+                  : "radial-gradient(circle at top right, rgba(255,255,255,0.96), rgba(224,236,255,0.82) 42%, rgba(255,255,255,0.80))",
             }}
             initial={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
             animate={{

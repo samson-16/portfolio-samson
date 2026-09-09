@@ -21,32 +21,35 @@ export function DottedGlowBackground({
       <div className="pointer-events-none fixed inset-0 z-0">
         {/* Dotted pattern with pulse animation */}
         <div
-          className="absolute inset-0 opacity-70 dark:opacity-30 animate-pulse-slow"
+          className="absolute inset-0 opacity-70 dark:opacity-45 animate-pulse-slow"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.45) 1px, transparent 0)",
+              "radial-gradient(circle at 1px 1px, var(--dot-color) 1px, transparent 0)",
             backgroundSize: "22px 22px",
           }}
         />
 
         {/* Animated Glow orbs */}
         <div
-          className="absolute -top-52 left-[18%] h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-blue-500/35 blur-[140px] dark:bg-blue-500/15 animate-float-slow"
+          className="absolute -top-52 left-[18%] h-[28rem] w-[28rem] -translate-x-1/2 rounded-full blur-[140px] animate-float-slow"
           style={{
+            background: "var(--orb-1)",
             animation:
               "float-slow 20s ease-in-out infinite, glow-pulse 8s ease-in-out infinite",
           }}
         />
         <div
-          className="absolute top-[20%] right-[10%] h-[22rem] w-[22rem] rounded-full bg-purple-400/30 blur-[160px] dark:bg-purple-500/15"
+          className="absolute top-[20%] right-[10%] h-[22rem] w-[22rem] rounded-full blur-[160px]"
           style={{
+            background: "var(--orb-2)",
             animation:
               "float-medium 15s ease-in-out infinite 2s, glow-pulse 6s ease-in-out infinite 1s",
           }}
         />
         <div
-          className="absolute bottom-[-10%] left-[12%] h-[24rem] w-[24rem] rounded-full bg-cyan-400/25 blur-[150px] dark:bg-cyan-500/12"
+          className="absolute bottom-[-10%] left-[12%] h-[24rem] w-[24rem] rounded-full blur-[150px]"
           style={{
+            background: "var(--orb-3)",
             animation:
               "float-fast 18s ease-in-out infinite 4s, glow-pulse 7s ease-in-out infinite 2s",
           }}

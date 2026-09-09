@@ -11,8 +11,8 @@ export function Hero() {
 
   return (
     <section id="home" className="tech-grid-section relative min-h-screen flex items-center justify-center overflow-hidden border-y border-slate-200 dark:border-slate-800">
-      <div className="pointer-events-none absolute left-[12%] top-[18%] h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute right-[8%] top-[28%] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+      <div className="pointer-events-none absolute left-[12%] top-[18%] h-64 w-64 rounded-full blur-3xl" style={{ background: "var(--orb-1)" }} />
+      <div className="pointer-events-none absolute right-[8%] top-[28%] h-72 w-72 rounded-full blur-3xl" style={{ background: "var(--orb-3)" }} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-24 relative z-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
           {/* Left: Text Content */}
@@ -25,7 +25,7 @@ export function Hero() {
            
 
             <motion.h1
-              className="mb-5 text-4xl font-extrabold leading-[1.02] tracking-[-0.055em] text-slate-950 dark:text-white sm:text-5xl lg:text-6xl"
+              className="mb-5 text-4xl font-extrabold leading-[1.02] tracking-[-0.055em] text-slate-950 dark:text-slate-100 sm:text-5xl lg:text-6xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -100,7 +100,7 @@ export function Hero() {
                 href="https://github.com/samson-16"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-full bg-white p-3 shadow-md ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:shadow-[0_0_18px_rgba(59,130,246,0.28)] dark:bg-slate-800 dark:ring-slate-700 md:p-3.5"
+                className="group rounded-full bg-white p-3 shadow-md ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:shadow-[0_0_18px_var(--accent-glow)] dark:bg-slate-800 dark:ring-slate-700 md:p-3.5"
               >
                 <Github className="h-6 w-6 text-slate-700 transition-transform duration-200 group-hover:scale-105 dark:text-slate-300 md:h-7 md:w-7" />
               </a>
@@ -108,13 +108,13 @@ export function Hero() {
                 href="https://www.linkedin.com/in/samson-demessie/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-full bg-white p-3 shadow-md ring-1 ring-blue-100 transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:shadow-[0_0_18px_rgba(59,130,246,0.32)] dark:bg-slate-800 dark:ring-blue-900/60 md:p-3.5"
+                className="group rounded-full bg-white p-3 shadow-md ring-1 ring-blue-100 transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:shadow-[0_0_22px_var(--accent-glow)] dark:bg-slate-800 dark:ring-blue-900/60 md:p-3.5"
               >
                 <Linkedin className="h-6 w-6 text-blue-600 transition-transform duration-200 group-hover:scale-105 dark:text-blue-400 md:h-7 md:w-7" />
               </a>
               <a
                 href="mailto:samsondemessie@gmail.com"
-                className="group rounded-full bg-white p-3 shadow-md ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:shadow-[0_0_18px_rgba(34,211,238,0.28)] dark:bg-slate-800 dark:ring-slate-700 md:p-3.5"
+                className="group rounded-full bg-white p-3 shadow-md ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:shadow-[0_0_18px_var(--accent-2-glow)] dark:bg-slate-800 dark:ring-slate-700 md:p-3.5"
               >
                 <Mail className="h-6 w-6 text-slate-700 transition-transform duration-200 group-hover:scale-105 dark:text-slate-300 md:h-7 md:w-7" />
               </a>

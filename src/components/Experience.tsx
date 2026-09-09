@@ -123,7 +123,7 @@ export function Experience() {
                   {/* Top row: company name (left) | period (right) */}
                   <div className="flex items-center justify-between gap-4 mb-3">
                     {/* Left: company name only */}
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">
                       {exp.company}
                     </h3>
 
@@ -133,7 +133,7 @@ export function Experience() {
                         {exp.period}
                       </span>
                       {exp.type && (
-                        <span className="mt-1 text-[0.65rem] font-medium tracking-wider uppercase text-slate-400 dark:text-slate-500">
+                        <span className="mt-1 text-[0.65rem] font-medium tracking-wider uppercase text-slate-500 dark:text-slate-400">
                           {exp.type}
                         </span>
                       )}

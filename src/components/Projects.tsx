@@ -153,7 +153,7 @@ export function Projects() {
         </div>
 
         <div className="flex flex-col flex-1 p-5">
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2 leading-snug">
             {project.title}
           </h3>
 

@@ -15,7 +15,7 @@ export function Community() {
   return (
     <section
       id="community"
-      className="tech-grid-section border-y border-slate-200 bg-background py-24 dark:border-slate-800"
+      className="section-band tech-grid-section border-y border-slate-200 py-24 dark:border-slate-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -50,7 +50,7 @@ export function Community() {
             >
               {/* Timeline dot */}
               <div className="absolute -left-6 top-8 flex items-center justify-center md:-left-8">
-                <div className="relative flex h-4 w-4 items-center justify-center rounded-full bg-blue-600 ring-4 ring-white dark:bg-blue-500 dark:ring-slate-950 md:h-5 md:w-5">
+                <div className="relative flex h-4 w-4 items-center justify-center rounded-full bg-blue-600 ring-4 ring-surface dark:bg-blue-500 dark:ring-surface md:h-5 md:w-5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-20" />
                 </div>
               </div>
@@ -61,11 +61,11 @@ export function Community() {
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-snug">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-100 leading-snug">
                     {item.role}
                   </h3>
                   <p className="mt-1 text-sm font-semibold text-blue-600 dark:text-blue-400 md:text-base">
-                    {item.organization} <span className="text-slate-400 dark:text-slate-500 mx-2">•</span> {item.timeline}
+                    {item.organization} <span className="text-slate-500 dark:text-slate-400 mx-2">•</span> {item.timeline}
                   </p>
                   <p className="mt-4 text-sm md:text-base leading-relaxed text-slate-600 dark:text-slate-300">
                     {item.description}

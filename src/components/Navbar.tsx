@@ -137,7 +137,7 @@ export function Navbar() {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="text-slate-900 dark:text-white cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-slate-900 dark:text-slate-100 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               whileHover={{ scale: 1.05 }}
             >
               <span className="text-xl md:text-2xl">
@@ -260,7 +260,7 @@ export function Navbar() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black/50 z-40 md:hidden"
+              className="fixed inset-0 z-40 md:hidden" style={{ backgroundColor: "var(--scrim)" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

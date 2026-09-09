@@ -36,10 +36,11 @@ export default function App() {
         outerAlpha={0}
         hasBlendMode={true}
         innerStyle={{
-          backgroundColor: "#00509d",
+          // Follows --cursor so it stays legible on both #FFFFFF and #0D0907.
+          backgroundColor: "var(--cursor)",
         }}
         outerStyle={{
-          border: "3px solid #00509d",
+          border: "3px solid var(--cursor)",
         }}
         clickables={[
           "a",

@@ -74,19 +74,19 @@ export function WelcomeLoader({ onComplete }: WelcomeLoaderProps) {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed inset-0 z-[100] flex min-h-screen items-center justify-center overflow-hidden bg-slate-950 text-white"
+          className="fixed inset-0 z-[100] flex min-h-screen items-center justify-center overflow-hidden bg-[#0d0907] text-slate-100"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: -24 }}
           transition={{ duration: 0.55, ease: "easeInOut" }}
           role="status"
           aria-live="polite"
         >
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,80,157,0.34),transparent_34%),radial-gradient(circle_at_72%_68%,rgba(14,165,233,0.22),transparent_28%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(53,114,214,0.30),transparent_34%),radial-gradient(circle_at_72%_68%,rgba(43,182,204,0.16),transparent_28%)]" />
           <div
             className="pointer-events-none absolute inset-0 opacity-30"
             style={{
               backgroundImage:
-                "radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.42) 1px, transparent 0)",
+                "radial-gradient(circle at 1px 1px, rgba(226, 218, 211, 0.14) 1px, transparent 0)",
               backgroundSize: "24px 24px",
             }}
           />
@@ -120,8 +120,8 @@ export function WelcomeLoader({ onComplete }: WelcomeLoaderProps) {
                   autoTypeText={INTRO_TEXT}
                   typingSpeed={[28, 72]}
                   scale={isCompactViewport ? 0.42 : 0.64}
-                  accentColor="#00509d"
-                  secondaryAccent="#38bdf8"
+                  accentColor="#6ba6ff"
+                  secondaryAccent="#4cd4e6"
                 />
               )}
             </div>
