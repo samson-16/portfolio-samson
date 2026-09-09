@@ -24,7 +24,7 @@ export function Experience() {
      {
       company: "Startup Agile",
       role: " Full-Stack Developer",
-      period: "Jan 2026 — Jun 2026",
+      period: "Nov 2024 — Jun 2026",
       current: false,
       achievements: [
 
